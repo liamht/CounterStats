@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="CounterStats.UI.Views.CurrentGame.Partials.CurrentScore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:CounterStats.UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="600">
+    <Grid Grid.Row="2">
+                <Image Grid.Column="0" Source="/CSGO-Helper;component/Views/Resources/Images/terrorist-icon.png" Height="40px" Width="40px" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 15 0"></Image>
+        <TextBlock Grid.Column="1" Foreground="#FEFEFE" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"  Margin="0 0 15 0" >
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}  {1}">
+                            <Binding Path="Team1Name" FallbackValue="TERRORISTS" />
+                            <Binding Path="TerroristScore" FallbackValue="0" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+
+
+                <Rectangle Fill="#FFBDBDBD" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="1px"></Rectangle>
+                <Rectangle Fill="#FFBDBDBD" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="1px"></Rectangle>
+
+
+
+
+                <TextBlock Grid.Column="2" Foreground="#FEFEFE" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0" FontSize="18">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}  {1}">
+                            <Binding Path="CounterTerroristScore" FallbackValue="0" />
+                            <Binding Path="Team1Name" FallbackValue="COUNTER TERRORISTS" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <Image Grid.Column="3" Source="/CSGO-Helper;component/Views/Resources/Images/counter-terrorist-icon.png" Height="40px" Width="40px"
+                       VerticalAlignment="Center" HorizontalAlignment="Right"></Image>
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+       
+</UserControl>

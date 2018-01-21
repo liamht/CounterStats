@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="CounterStats.UI.Views.CurrentGame.CurrentGamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:CounterStats.UI"
+      xmlns:designViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:views="clr-namespace:CounterStats.UI.Views"
+      xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
+      xmlns:partials="clr-namespace:CounterStats.UI.Views.CurrentGame.Partials"
+      mc:Ignorable="d" 
+      TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
+      TextElement.FontWeight="Medium"
+      TextElement.FontSize="14"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+      Background="#171625"
+      DataContext="{StaticResource CurrentGameViewModel}"
+      d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}"
+             Height="300" Width="600">
+
+    <Border BorderBrush="#23212f" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
+        <Grid>
+            <Rectangle Grid.RowSpan="5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF2F2D40" Offset="0.0" />
+                        <GradientStop Color="#222131" Offset="0.2" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image Grid.Row="0" Grid.RowSpan="5" Source="/CSGO-Helper;component/Views/Resources/Images/score-background.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                <TextBlock  Foreground="#FEFEFE" HorizontalAlignment="Center" Margin="10 5" Text="{Binding GameMode}"></TextBlock>
+                <TextBlock  Foreground="#FFAEAEAE" HorizontalAlignment="Center" Margin="10 5" Text="{Binding CurrentMap}" ></TextBlock>
+            </StackPanel>
+
+            <partials:CurrentScore Grid.Row="2" Margin="15"></partials:CurrentScore>
+
+            <partials:CurrentPlayer Grid.Row="3"></partials:CurrentPlayer>
+            <partials:CurrentGameStats Grid.Row="4"></partials:CurrentGameStats>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="75px"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+    </Border>
+</UserControl>
+
+
+
