@@ -29,7 +29,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Image Grid.Row="0" Grid.RowSpan="5" Source="/CSGO-Helper;component/Views/Resources/Images/score-background.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+            <Image Grid.Row="0" Grid.RowSpan="5" Source="/CounterStats;component/Views/Resources/Images/score-background.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
                 <TextBlock  Foreground="#FEFEFE" HorizontalAlignment="Center" Margin="10 5" Text="{Binding GameMode}"></TextBlock>

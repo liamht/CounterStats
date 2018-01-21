@@ -355,6 +355,7 @@ namespace CounterStats.UI.ViewModels
             TerroristScore = state.TerroristScore;
             CounterTerroristScore = state.CounterTerroristScore;
             CurrentMap = state.CurrentMap;
+            CurrentPlayerAvatarUrl = state.AvatarUrl;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
