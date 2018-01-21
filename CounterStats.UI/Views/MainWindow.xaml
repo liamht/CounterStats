@@ -46,7 +46,7 @@
         <!--Window Icon and Title-->
         <StackPanel Background="#FF3E3E53" Orientation="Horizontal" Margin="0" VerticalAlignment="Top" Height="25px">
 
-            <TextBlock Text="CSGO Companion"
+            <TextBlock Text="CounterStats"
                            FontFamily="Roboto" FontSize="12" Padding="3px" Margin="10 0"
                            Foreground="{StaticResource MaterialDesignBodyLight}" VerticalAlignment="Center"/>
         </StackPanel>
@@ -96,7 +96,7 @@
                                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
                                               x:Name="MenuToggleButton"/>
                                 <Grid>
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">CS:GO Game Tracker</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Current Game Stats</TextBlock>
                                     
                                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                                         <materialDesign:PackIcon Kind="MusicNote" VerticalAlignment="Center" Width="25" Height="25" Margin="0 0 8 0"/>
