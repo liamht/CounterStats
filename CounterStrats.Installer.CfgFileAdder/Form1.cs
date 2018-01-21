@@ -43,7 +43,7 @@ namespace CounterStrats.Installer.CfgFileAdder
         private void AddConfigFileToSelectedPath(string selectedPath)
         {
                 var cfgLocation = selectedPath + "\\csgo\\cfg\\gamestate_integration_counterstrats.cfg";
-                File.Copy("gamestate_integration_counterstrats.cfg", cfgLocation);
+                File.Copy("gamestate_integration_counterstrats.cfg", cfgLocation, true);
         }
 
         private bool CheckFolderIsValidCounterStrikeFolder(string selectedPath)

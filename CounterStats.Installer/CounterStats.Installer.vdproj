@@ -99,14 +99,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_704B2AB86A90D98DCD497636838C7133"
-        "OwnerKey" = "8:_41436A1EDEE74A23820F1E52F16E9466"
+        "MsmKey" = "8:_6B9AFEFA9D99EF82F2E36F9B2B90E78E"
+        "OwnerKey" = "8:_928F6754DFE005F62387FE9C58805096"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_704B2AB86A90D98DCD497636838C7133"
-        "OwnerKey" = "8:_928F6754DFE005F62387FE9C58805096"
+        "MsmKey" = "8:_6B9AFEFA9D99EF82F2E36F9B2B90E78E"
+        "OwnerKey" = "8:_41436A1EDEE74A23820F1E52F16E9466"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,6 +196,18 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DF41A84B3FE360265F2FC2DAFC82A4F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5062C83C01F143BFA9736CB655715237"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E6BF3754088254B86121B9BCDF18C15C"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -215,6 +227,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_928F6754DFE005F62387FE9C58805096"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6B9AFEFA9D99EF82F2E36F9B2B90E78E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -268,25 +286,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5062C83C01F143BFA9736CB655715237"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DF41A84B3FE360265F2FC2DAFC82A4F3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1E9F93FC8F811AE4BEF7F9CB51E3185B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_704B2AB86A90D98DCD497636838C7133"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -618,14 +618,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_704B2AB86A90D98DCD497636838C7133"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6B9AFEFA9D99EF82F2E36F9B2B90E78E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_704B2AB86A90D98DCD497636838C7133"
+                    "_6B9AFEFA9D99EF82F2E36F9B2B90E78E"
                     {
                     "Name" = "8:System.Windows.Interactivity.dll"
                     "Attributes" = "3:512"
@@ -985,15 +985,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CounterStats"
-        "ProductCode" = "8:{A1DD19B9-BDB9-4ACF-8043-FDB440C67AD5}"
-        "PackageCode" = "8:{633A518B-DF04-4568-9915-ECD377F880C0}"
+        "ProductCode" = "8:{9FA1B0E8-2DC8-4B16-9FFA-79F7E6B54EFD}"
+        "PackageCode" = "8:{7AD87A4A-8353-4CDE-889F-293B27481709}"
         "UpgradeCode" = "8:{80FA1C07-F057-4793-AD95-131A3CDE32B7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:0.1.0"
         "Manufacturer" = "8:LiamHT"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
