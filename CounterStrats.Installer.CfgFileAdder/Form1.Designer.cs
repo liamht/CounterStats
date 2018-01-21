@@ -55,7 +55,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.textBox1.Location = new System.Drawing.Point(42, 115);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(326, 20);
