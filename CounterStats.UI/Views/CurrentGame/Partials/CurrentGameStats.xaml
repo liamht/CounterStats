@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="CounterStats.UI.Views.CurrentGame.Partials.CurrentGameStats"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="400"
+             xmlns:designTimeViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
+             d:DataContext="{d:DesignInstance Type= designTimeViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}">
+        <Grid>
+            <elements:FourColumnRow Grid.Row="0">
+                <elements:FourColumnRow.ColumnOne>
+                    <Label Content="{Binding Kills}" ContentStringFormat="Kills: {0}" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnOne>
+
+                <elements:FourColumnRow.ColumnTwo>
+                    <Label Content="{Binding Deaths}" ContentStringFormat="Deaths: {0}"
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnTwo>
+
+                <elements:FourColumnRow.ColumnThree>
+                    <Label Content="{Binding MVPs}" ContentStringFormat="MVPs: {0}" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnThree>
+
+                <elements:FourColumnRow.ColumnFour>
+                    <Label Grid.Column="0" Content="{Binding Score}" ContentStringFormat="Score: {0}" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnFour>
+            </elements:FourColumnRow>
+
+            <elements:FourColumnRow Grid.Row="1">
+                <elements:FourColumnRow.ColumnOne>
+                    <Label Content="{Binding KillDeathRatio}" ContentStringFormat="K/D: {0:N2}" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnOne>
+
+                <elements:FourColumnRow.ColumnTwo>
+                    <Label Content="{Binding Health}" ContentStringFormat="Health: {0}"
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnTwo>
+
+                <elements:FourColumnRow.ColumnThree>
+                    <Label Content="{Binding Armor}" ContentStringFormat="Armor: {0}" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnThree>
+
+                <elements:FourColumnRow.ColumnFour>
+                    <Label Grid.Column="0" Content="{Binding DefuseKit}" ContentStringFormat="Kit: {0}" 
+                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
+                </elements:FourColumnRow.ColumnFour>
+            </elements:FourColumnRow>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+</UserControl>
