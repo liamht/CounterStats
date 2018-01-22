@@ -8,12 +8,14 @@ namespace CounterStats.Business
     public class CurrentGameUpdater : IDisposable
     {
         public event CsgoStateChangeHandler OnStateChange;
+        public event CsgoDeathHandler OnDeath;
         public event CsgoKillHandler OnKill;
         public event EventHandler OnCouldNotStartListening;
 
         private readonly SteamApiCaller _csgoApiHelper;
         private bool _isListenerRunning;
 
+        private string _mainUserId;
         private string _currentUserId;
         private int _currentRoundNumber;
         private int _cachedRoundKills;
@@ -22,6 +24,7 @@ namespace CounterStats.Business
         private int _cachedDeaths;
         private string _cachedPlayerAvatarUrl;
         private bool _hasUserChanged;
+        private int _deathStreak;
 
         public CurrentGameUpdater()
         {
@@ -85,16 +88,29 @@ namespace CounterStats.Business
             _cachedMatchKills = gs.Player.MatchStats.Kills;
             _cachedRoundHeadshots = gs.Player.State.RoundKillHS;
             _cachedDeaths = gs.Player.MatchStats.Deaths;
+            _mainUserId = gs.Player.SteamID;
         }
 
         private void OnPlayerGotKilled(GameState gs)
         {
             _cachedDeaths = gs.Player.MatchStats.Deaths;
+         
             if (gs.Map.Mode == MapMode.DeathMatch)
             {
                 _cachedRoundHeadshots = 0;
                 _cachedRoundKills = 0;
             }
+
+            var args = new DeathEventArgs();
+            
+            if (_mainUserId == gs.Player.SteamID && gs.Map.Mode != MapMode.Undefined )
+            {
+                _deathStreak++;
+                args.CurrentDeathStreak = _deathStreak;
+                args.IsCurrentPlayer = true;
+            }
+
+            OnDeath?.Invoke(args);
         }
 
         private void OnPlayerGotKill(GameState gs)
