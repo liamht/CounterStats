@@ -301,6 +301,11 @@ namespace CounterStats.UI.ViewModels
 
         private void PlayDeathSound(DeathEventArgs death)
         {
+            if (!Properties.Settings.Default.PlayQuakeSounds)
+            {
+                return;
+            }
+
             if (death.IsCurrentPlayer && death.CurrentDeathStreak == 7 & Kills == 0)
             {
                 var player = new SoundPlayer($"Sounds/bond.wav");
