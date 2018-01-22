@@ -295,6 +295,16 @@ namespace CounterStats.UI.ViewModels
                 _updater = new CurrentGameUpdater();
                 _updater.OnKill += PlayKillSound;
                 _updater.OnStateChange += UpdateViewModelWithNewState;
+                _updater.OnDeath += PlayDeathSound;
+            }
+        }
+
+        private void PlayDeathSound(DeathEventArgs death)
+        {
+            if (death.IsCurrentPlayer && death.CurrentDeathStreak == 7 & Kills == 0)
+            {
+                var player = new SoundPlayer($"Sounds/bond.wav");
+                player.Play();
             }
         }
 
