@@ -8,6 +8,7 @@ namespace CounterStats.Business
     public class CurrentGameUpdater : IDisposable
     {
         public event CsgoStateChangeHandler OnStateChange;
+        public event CsgoDeathHandler OnDeath;
         public event CsgoKillHandler OnKill;
         public event EventHandler OnCouldNotStartListening;
 
@@ -95,6 +96,10 @@ namespace CounterStats.Business
                 _cachedRoundHeadshots = 0;
                 _cachedRoundKills = 0;
             }
+
+            //todo: track deathstreak
+            var args = new DeathEventArgs();
+            OnDeath?.Invoke(args);
         }
 
         private void OnPlayerGotKill(GameState gs)
