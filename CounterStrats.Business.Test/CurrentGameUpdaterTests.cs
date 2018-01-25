@@ -1,5 +1,7 @@
 ﻿using NUnit;
 using CounterStats.Business;
+using CSGSI;
+using Moq;
 using NUnit.Framework;
 
 namespace CounterStrats.Business.Test
@@ -11,7 +13,8 @@ namespace CounterStrats.Business.Test
         [SetUp]
         public void SetUp()
         {
-            _subject = new CurrentGameUpdater();
+            //todo: Make PR to CSGSI on github to give CurrentGameUpdater an interface that can be mocked.
+            //_subject = new CurrentGameUpdater();
         }
     }
 }

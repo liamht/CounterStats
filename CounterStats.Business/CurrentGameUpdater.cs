@@ -6,7 +6,7 @@ using CounterStats.Business.Interfaces;
 
 namespace CounterStats.Business
 {
-    public class CurrentGameUpdater : IDisposable, ICurrentGameUpdater
+    public class CurrentGameUpdater : ICurrentGameUpdater
     {
         public event CsgoStateChangeHandler OnStateChange;
         public event CsgoDeathHandler OnDeath;
@@ -26,9 +26,12 @@ namespace CounterStats.Business
         private string _cachedPlayerAvatarUrl;
         private bool _hasUserChanged;
         private int _deathStreak;
+        private GameStateListener _csgoApiListener;
 
-        public CurrentGameUpdater()
+        public CurrentGameUpdater(GameStateListener apiListener)
         {
+            _csgoApiListener = apiListener;
+
             //todo inject
             _csgoApiHelper = new SteamApiCaller();
             //end todo
@@ -36,10 +39,10 @@ namespace CounterStats.Business
 
         public void Start()
         {
-            var csgoApiListener = new GameStateListener(12455);
-            csgoApiListener.NewGameState += OnNewGameState;
+            _csgoApiListener = new GameStateListener(12455);
+            _csgoApiListener.NewGameState += OnNewGameState;
 
-            _isListenerRunning = csgoApiListener.Start();
+            _isListenerRunning = _csgoApiListener.Start();
             if (!_isListenerRunning)
             {
                 OnCouldNotStartListening?.Invoke(this, EventArgs.Empty);
@@ -98,7 +101,7 @@ namespace CounterStats.Business
         private void OnPlayerGotKilled(GameState gs)
         {
             _cachedDeaths = gs.Player.MatchStats.Deaths;
-         
+
             if (gs.Map.Mode == MapMode.DeathMatch)
             {
                 _cachedRoundHeadshots = 0;
@@ -106,8 +109,8 @@ namespace CounterStats.Business
             }
 
             var args = new DeathEventArgs();
-            
-            if (_mainUserId == gs.Player.SteamID && gs.Map.Mode != MapMode.Undefined )
+
+            if (_mainUserId == gs.Player.SteamID && gs.Map.Mode != MapMode.Undefined)
             {
                 _deathStreak++;
                 args.CurrentDeathStreak = _deathStreak;
@@ -144,6 +147,10 @@ namespace CounterStats.Business
             if (_isListenerRunning)
             {
                 _isListenerRunning = false;
+            }
+            if (_csgoApiListener.Running)
+            {
+                _csgoApiListener.Stop();
             }
         }
     }

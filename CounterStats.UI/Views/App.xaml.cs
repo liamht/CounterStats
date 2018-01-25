@@ -7,6 +7,7 @@ using CounterStats.Business.Interfaces;
 using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views.CurrentGame;
 using CounterStats.UI.Views.Elements;
+using CSGSI;
 using Ninject;
 
 namespace CounterStats.UI.Views
@@ -44,6 +45,7 @@ namespace CounterStats.UI.Views
             _container.Bind<CurrentGameViewModel>().To<CurrentGameViewModel>();
             _container.Bind<MainWindowViewModel>().To<MainWindowViewModel>();
 
+            _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
 
             var menu = GetMainMenu();
             _container.Bind<IMainMenu>().ToConstant(menu);
