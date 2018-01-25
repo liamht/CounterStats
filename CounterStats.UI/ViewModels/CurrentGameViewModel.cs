@@ -290,15 +290,17 @@ namespace CounterStats.UI.ViewModels
         public CurrentGameViewModel(ICurrentGameUpdater updater)
         {
             _updater = updater;
+            _updater.OnKill += PlayKillSound;
+            _updater.OnStateChange += UpdateViewModelWithNewState;
+            _updater.OnDeath += PlayDeathSound;
+
             PlayerName = "Waiting to connect to a game";
 
 
             DependencyObject dep = new DependencyObject();
             if (!DesignerProperties.GetIsInDesignMode(dep))
             {
-                _updater.OnKill += PlayKillSound;
-                _updater.OnStateChange += UpdateViewModelWithNewState;
-                _updater.OnDeath += PlayDeathSound;
+                _updater.Start();
             }
         }
 

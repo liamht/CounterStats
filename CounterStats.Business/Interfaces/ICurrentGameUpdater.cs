@@ -8,5 +8,7 @@ namespace CounterStats.Business.Interfaces
         event CsgoDeathHandler OnDeath;
         event CsgoKillHandler OnKill;
         event CsgoStateChangeHandler OnStateChange;
+
+        void Start();
     }
 }

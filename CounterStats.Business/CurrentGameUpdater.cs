@@ -32,7 +32,10 @@ namespace CounterStats.Business
             //todo inject
             _csgoApiHelper = new SteamApiCaller();
             //end todo
+        }
 
+        public void Start()
+        {
             var csgoApiListener = new GameStateListener(12455);
             csgoApiListener.NewGameState += OnNewGameState;
 
