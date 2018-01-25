@@ -52,6 +52,7 @@
     <Compile Include="CurrentGameUpdater.cs" />
     <Compile Include="Handlers.cs" />
     <Compile Include="DeathEventArgs.cs" />
+    <Compile Include="Interfaces\ICurrentGameUpdater.cs" />
     <Compile Include="KillEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

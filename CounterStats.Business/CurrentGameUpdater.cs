@@ -2,10 +2,11 @@
 using CSGSI;
 using CSGSI.Nodes;
 using CounterStats.ApiCaller;
+using CounterStats.Business.Interfaces;
 
 namespace CounterStats.Business
 {
-    public class CurrentGameUpdater : IDisposable
+    public class CurrentGameUpdater : IDisposable, ICurrentGameUpdater
     {
         public event CsgoStateChangeHandler OnStateChange;
         public event CsgoDeathHandler OnDeath;

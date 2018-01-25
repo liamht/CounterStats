@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Media;
 using System.Windows;
 using CounterStats.Business;
+using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels
 {
@@ -284,15 +285,17 @@ namespace CounterStats.UI.ViewModels
         #endregion
         #endregion
 
-        private CurrentGameUpdater _updater;
-        public CurrentGameViewModel()
+        private ICurrentGameUpdater _updater;
+
+        public CurrentGameViewModel(ICurrentGameUpdater updater)
         {
+            _updater = updater;
             PlayerName = "Waiting to connect to a game";
+
 
             DependencyObject dep = new DependencyObject();
             if (!DesignerProperties.GetIsInDesignMode(dep))
             {
-                _updater = new CurrentGameUpdater();
                 _updater.OnKill += PlayKillSound;
                 _updater.OnStateChange += UpdateViewModelWithNewState;
                 _updater.OnDeath += PlayDeathSound;
