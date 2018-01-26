@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using CounterStats.ApiCaller.HttpWebClient;
 using CounterStats.Business;
 using CounterStats.Business.Interfaces;
 using CounterStats.UI.ViewModels;
@@ -45,8 +46,10 @@ namespace CounterStats.UI.Views
             _container.Bind<CurrentGameViewModel>().To<CurrentGameViewModel>();
             _container.Bind<MainWindowViewModel>().To<MainWindowViewModel>();
 
-            _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
+            _container.Bind<IHttpWebClient>().To<HttpWebClient>();
 
+            _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
+            
             var menu = GetMainMenu();
             _container.Bind<IMainMenu>().ToConstant(menu);
         }

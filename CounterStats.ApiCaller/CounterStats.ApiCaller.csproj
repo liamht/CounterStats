@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="CsgoApiCaller.cs" />
     <Compile Include="Entities\GetPlayerSummariesReturnValue.cs" />
+    <Compile Include="HttpWebClient\IHttpWebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HttpWebClient\HttpWebClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
