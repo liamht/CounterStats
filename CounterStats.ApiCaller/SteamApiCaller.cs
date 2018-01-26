@@ -28,7 +28,7 @@ namespace CounterStats.ApiCaller
             var outerResponse = new {response = innerResponse};
             var returnedObject = JsonConvert.DeserializeAnonymousType(jsonString, outerResponse);
 
-            return returnedObject.response.players.FirstOrDefault();
+            return returnedObject?.response?.players?.FirstOrDefault() ?? null;
         }
     }
 }
