@@ -233,6 +233,7 @@
     <Content Include="Sounds\assassin.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\bond.wav" />
     <Content Include="Sounds\doublekill.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
