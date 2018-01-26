@@ -28,10 +28,7 @@ namespace CounterStats.UI.ViewModels
             }
         }
         #endregion
-
-
-        private CurrentGamePage _currentGamePage;
-
+        
         public bool PlayQuakeSounds { get; set; }
 
         public List<MenuItem> Menu { get; set; }
