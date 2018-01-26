@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using CounterStats.ApiCaller;
 using CounterStats.ApiCaller.HttpWebClient;
 using CounterStats.Business;
 using CounterStats.Business.Interfaces;
@@ -30,7 +31,6 @@ namespace CounterStats.UI.Views
             base.OnStartup(e);
             ConfigureContainer();
 
-
             var page = _container.Get<MainWindow>();
             Current.MainWindow.Show();
 
@@ -47,6 +47,7 @@ namespace CounterStats.UI.Views
             _container.Bind<MainWindowViewModel>().To<MainWindowViewModel>();
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
+            _container.Bind<ISteamApiCaller>().To<SteamApiCaller>();
 
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
             

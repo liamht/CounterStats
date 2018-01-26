@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISteamApiCaller.cs" />
     <Compile Include="SteamApiCaller.cs" />
     <Compile Include="Entities\GetPlayerSummariesReturnValue.cs" />
     <Compile Include="HttpWebClient\IHttpWebClient.cs" />

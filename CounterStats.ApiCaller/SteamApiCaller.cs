@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CounterStats.ApiCaller
 {
-    public sealed class SteamApiCaller
+    public sealed class SteamApiCaller : ISteamApiCaller
     {
         private const string API_KEY = "21F57B48034A17C22F1E49FD0C27D507";
         private IHttpWebClient _client;

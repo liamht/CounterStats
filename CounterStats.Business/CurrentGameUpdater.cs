@@ -13,7 +13,7 @@ namespace CounterStats.Business
         public event CsgoKillHandler OnKill;
         public event EventHandler OnCouldNotStartListening;
 
-        private readonly SteamApiCaller _csgoApiHelper;
+        private readonly ISteamApiCaller _csgoApiHelper;
         private bool _isListenerRunning;
 
         private string _mainUserId;
@@ -28,12 +28,12 @@ namespace CounterStats.Business
         private int _deathStreak;
         private GameStateListener _csgoApiListener;
 
-        public CurrentGameUpdater(GameStateListener apiListener)
+        public CurrentGameUpdater(GameStateListener apiListener, ISteamApiCaller csgoApiHelper)
         {
             _csgoApiListener = apiListener;
 
             //todo inject
-            _csgoApiHelper = new SteamApiCaller();
+            _csgoApiHelper = csgoApiHelper;
             //end todo
         }
 
