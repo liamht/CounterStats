@@ -24,7 +24,7 @@ namespace CounterStrats.UI.Test.ViewModels
         }
 
         [Test]
-        public void SelectedItem_WhenChanged_CallsOnClickAction()
+        public void SelectedMenuItem_WhenChanged_CallsOnClickAction()
         {
             var menuItem = new MenuItem() { Text = "test", OnClick = () => MainMenuItemMethod() };
             _subject.SelectedMenuItem = menuItem;
@@ -33,7 +33,7 @@ namespace CounterStrats.UI.Test.ViewModels
         }
 
         [Test]
-        public void SelectedItem_WhenChanged_CallsOnPropertyChanged()
+        public void SelectedMenuItem_WhenChanged_CallsOnPropertyChanged()
         {
             var nameOfPropertyChanged = string.Empty;
             _subject.PropertyChanged += (sender, args) => nameOfPropertyChanged = args.PropertyName;
