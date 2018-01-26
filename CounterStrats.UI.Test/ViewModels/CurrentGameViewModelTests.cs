@@ -20,7 +20,8 @@ namespace CounterStrats.UI.Test.ViewModels
         {
             _updater = new Mock<ICurrentGameUpdater>();
             _updater.Setup(c => c.Start());
-            
+            _updater.Setup(c => c.Dispose());
+
             _subject = new CurrentGameViewModel(_updater.Object);
         }
 
@@ -34,6 +35,14 @@ namespace CounterStrats.UI.Test.ViewModels
         public void Constructor_SetsDefaultValueForPlayerName()
         {
             Assert.That(_subject.PlayerName, Is.EqualTo("Waiting to connect to a game")); 
+        }
+        
+        [Test]
+        public void Dispose_CallsUpdaterDispose()
+        {
+            _subject.Dispose();
+
+            _updater.Verify(c => c.Dispose(), Times.Once);
         }
     }
 }
