@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.Views
 {
@@ -10,10 +13,13 @@ namespace CounterStats.UI.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel vm)
         {
+            DataContext = vm;
             InitializeComponent();
         }
+
+        //todo: mvvm
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {

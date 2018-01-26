@@ -16,7 +16,6 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Background="#282834"
-        DataContext="{StaticResource MainWindowViewModel}"
         d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeMainWindowViewModel , IsDesignTimeCreatable=True}"
         MaxHeight="390" MinHeight="390" MaxWidth="600" MinWidth="600"
         WindowStyle="None"        
@@ -78,9 +77,9 @@
                             <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" DockPanel.Dock="Top" 
                                           HorizontalAlignment="Right" Margin="16" IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                             <ListBox x:Name="MainMenu" Margin="0 16 0 16" SelectedIndex="0"                         
-                                     ItemsSource="{Binding Menu}">
+                                     ItemsSource="{Binding Menu}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <ListBox.ItemTemplate>
-                                    <DataTemplate DataType="local:MenuItem">
+                                    <DataTemplate DataType="elements:MenuItem">
                                         <TextBlock Text="{Binding Text}" Margin="32 0 32 0" />
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -89,14 +88,14 @@
 
                     </materialDesign:DrawerHost.LeftDrawerContent>
                     
-                    <DockPanel HorizontalAlignment="Left">
+                    <DockPanel HorizontalAlignment="Stretch">
                         <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"  Background="#282834"
                                                   Mode="PrimaryMid" DockPanel.Dock="Top">
                             <DockPanel>
                                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
                                               x:Name="MenuToggleButton"/>
                                 <Grid>
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Current Game Stats</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="{Binding SelectedMenuItem.Text}"></TextBlock>
                                     
                                     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right">
                                         <materialDesign:PackIcon Kind="MusicNote" VerticalAlignment="Center" Width="25" Height="25" Margin="0 0 8 0"/>
@@ -120,8 +119,7 @@
                                     </Style.Triggers>
                                 </Style>
                             </ContentControl.Style>
-
-                            <currentGame:CurrentGamePage HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <ContentControl x:Name="CurrentPage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600"></ContentControl>
                         </ContentControl>
                     </DockPanel>
 

@@ -4,7 +4,7 @@ namespace CounterStats.UI.DesignTimeViewModels
 {
    public class DesignTimeCurrentGameViewModel : CurrentGameViewModel
     {
-        public DesignTimeCurrentGameViewModel()
+        public DesignTimeCurrentGameViewModel() : base(null)
         {
             CurrentPlayerAvatarUrl =
                 "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/30/3026aa465f37e0b836bd84ddc397584a9f899002_medium.jpg";
