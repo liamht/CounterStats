@@ -26,12 +26,23 @@ namespace CounterStrats.UI.Test.ViewModels
         [Test]
         public void SelectedItem_WhenChanged_CallsOnClickAction()
         {
-            var menuItem = new MenuItem() {Text = "test", OnClick = () => MainMenuItemMethod()};
+            var menuItem = new MenuItem() { Text = "test", OnClick = () => MainMenuItemMethod() };
             _subject.SelectedMenuItem = menuItem;
 
             Assert.IsTrue(_hasMenuItemMethodBeenCalled);
         }
-           
+
+        [Test]
+        public void SelectedItem_WhenChanged_CallsOnPropertyChanged()
+        {
+            var nameOfPropertyChanged = string.Empty;
+            _subject.PropertyChanged += (sender, args) => nameOfPropertyChanged = args.PropertyName;
+
+            var menuItem = new MenuItem() { Text = "test", OnClick = () => MainMenuItemMethod() };
+            _subject.SelectedMenuItem = menuItem;
+
+            Assert.IsTrue(nameOfPropertyChanged == "SelectedMenuItem");
+        }
 
         private void MainMenuItemMethod()
         {
