@@ -15,7 +15,6 @@
       TextElement.FontSize="14"
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
       Background="#171625"
-      DataContext="{StaticResource CurrentGameViewModel}"
       d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}"
              Height="300" Width="600">
 

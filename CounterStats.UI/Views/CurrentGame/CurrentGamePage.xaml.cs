@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.Views.CurrentGame
 {
@@ -8,8 +9,9 @@ namespace CounterStats.UI.Views.CurrentGame
     /// </summary>
     public partial class CurrentGamePage : UserControl
     {
-        public CurrentGamePage()
-        {    
+        public CurrentGamePage(CurrentGameViewModel vm)
+        {
+            DataContext = vm;
             InitializeComponent();
             Dispatcher.ShutdownStarted += OnDispatcherShutDownStarted;
         }
