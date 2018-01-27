@@ -108,7 +108,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DesignTimeViewModels\DesignTimeCurrentGameViewModel.cs" />
+    <Compile Include="DesignTimeViewModels\DesignTimeLifetimeStatsViewModel.cs" />
     <Compile Include="ViewModels\CurrentGameViewModel.cs" />
+    <Compile Include="ViewModels\LifetimeStatsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\CurrentGame\CurrentGamePage.xaml.cs">
       <DependentUpon>CurrentGamePage.xaml</DependentUpon>
