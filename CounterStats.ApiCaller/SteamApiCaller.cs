@@ -30,5 +30,20 @@ namespace CounterStats.ApiCaller
 
             return returnedObject?.response?.players?.FirstOrDefault() ?? null;
         }
+
+        public GetUserStatsForGameReturnValue GetUserStatsForCounterStrikeGlobalOffensive(string steamId)
+        {
+            var url =$"http://api.steampowered.com/ISteamUser/GetUserStatsForGame/v0002/" +
+                $"?appid=730&key={API_KEY}&steamid={steamId}";
+
+            var jsonString = _client.DownloadString(url);
+
+            var innerResponse = new { stats = new List<GetUserStatsForGameReturnValue>() };
+            var outerResponse = new { response = innerResponse };
+
+            var returnedObject = JsonConvert.DeserializeAnonymousType(jsonString, outerResponse);
+
+            return returnedObject?.response?.stats?.FirstOrDefault() ?? null;
+        }
     }
 }
