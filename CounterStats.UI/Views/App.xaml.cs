@@ -9,6 +9,7 @@ using CounterStats.Business.Interfaces;
 using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views.CurrentGame;
 using CounterStats.UI.Views.Elements;
+using CounterStats.UI.Views.LifetimeStats;
 using CSGSI;
 using Ninject;
 
@@ -67,6 +68,14 @@ namespace CounterStats.UI.Views
                     if (mainWindow != null)
                     {
                         mainWindow.CurrentPage.Content = _container.Get<CurrentGamePage>();
+                    }
+                }},
+                new MenuItem() {Text = "Lifetime Statistics", OnClick = () =>
+                {
+                    var mainWindow = (Current.MainWindow as MainWindow);
+                    if (mainWindow != null)
+                    {
+                        mainWindow.CurrentPage.Content = _container.Get<LifetimeStatsPage>();
                     }
                 }},
                 new MenuItem() {Text = "More Features Coming Soon", OnClick = () => { }}
