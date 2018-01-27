@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Configuration;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.Views
