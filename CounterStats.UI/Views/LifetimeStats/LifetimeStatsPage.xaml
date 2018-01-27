@@ -12,7 +12,19 @@
       Background="#171625"
       d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeLifetimeStatsViewModel , IsDesignTimeCreatable=True}"
              Height="300" Width="600">
-    
+    <Grid>
+        <StackPanel>
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="Kills: {0}">
+                        <Binding Path="Kills" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+
+            <TextBlock Text="Hello world"></TextBlock>
+        </StackPanel>
+    </Grid>
 </UserControl>
 
 

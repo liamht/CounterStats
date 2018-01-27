@@ -1,4 +1,7 @@
-﻿using CounterStats.ApiCaller;
+﻿using System;
+using System.Linq;
+using CounterStats.ApiCaller;
+using CounterStats.Business.Entities;
 using CounterStats.Business.Interfaces;
 
 namespace CounterStats.Business
@@ -10,6 +13,15 @@ namespace CounterStats.Business
         public LifetimeStatisticsFetcher(ISteamApiCaller apiCaller)
         {
             _apiCaller = apiCaller;
+        }
+
+        public CsGoStats GetCsgoStats(string steamId)
+        {
+            var result = _apiCaller.GetUserStatsForCounterStrikeGlobalOffensive(steamId);
+            return new CsGoStats()
+            {
+                Kills =  long.Parse(result.Single(c => c.Name == "total_kills").Value)
+            };
         }
     }
 }
