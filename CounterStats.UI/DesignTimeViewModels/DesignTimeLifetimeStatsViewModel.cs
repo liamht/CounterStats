@@ -4,7 +4,7 @@ namespace CounterStats.UI.DesignTimeViewModels
 {
     public class DesignTimeLifetimeStatsViewModel : LifetimeStatsViewModel
     {
-        public DesignTimeLifetimeStatsViewModel()
+        public DesignTimeLifetimeStatsViewModel() : base(null)
         {
         }
     }
