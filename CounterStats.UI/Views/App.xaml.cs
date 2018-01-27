@@ -45,10 +45,12 @@ namespace CounterStats.UI.Views
 
             _container.Bind<CurrentGameViewModel>().To<CurrentGameViewModel>();
             _container.Bind<MainWindowViewModel>().To<MainWindowViewModel>();
+            _container.Bind<LifetimeStatsViewModel>().To<LifetimeStatsViewModel>();
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
             _container.Bind<ISteamApiCaller>().To<SteamApiCaller>();
 
+            _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
             
             var menu = GetMainMenu();

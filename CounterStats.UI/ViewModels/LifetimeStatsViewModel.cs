@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels
 {
     public class LifetimeStatsViewModel
     {
+        private ILifetimeStatisticsFetcher _fetcher;
+
+        public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
+        {
+                
+        }
     }
 }

@@ -9,8 +9,9 @@ namespace CounterStats.UI.Views.LifetimeStats
     /// </summary>
     public partial class LifetimeStatsPage : UserControl
     {
-        public LifetimeStatsPage()
+        public LifetimeStatsPage(LifetimeStatsViewModel vm)
         {
+            DataContext = vm;
             InitializeComponent();
         }
     }
