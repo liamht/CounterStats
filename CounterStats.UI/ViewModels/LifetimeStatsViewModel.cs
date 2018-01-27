@@ -1,4 +1,5 @@
-﻿using CounterStats.Business.Interfaces;
+﻿using System;
+using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels
 {
@@ -8,6 +9,12 @@ namespace CounterStats.UI.ViewModels
 
         public long Kills { get; set; }
 
+        public long Deaths { get; set; }
+
+        public double KillDeathRatio { get; set; }
+
+        public long DamageDone { get; set; }
+
         public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
         {
             _fetcher = fetcher;
@@ -15,6 +22,9 @@ namespace CounterStats.UI.ViewModels
             var stats = _fetcher.GetCsgoStats("76561198442886149");
 
             Kills = stats.Kills;
+            Deaths = stats.Deaths;
+            KillDeathRatio = Math.Round((double)Kills / (double)Deaths, 2);
+            DamageDone = stats.DamageDone;
         }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:designViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
+             xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
              mc:Ignorable="d" 
              TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
              TextElement.FontWeight="Medium"
@@ -13,6 +14,30 @@
              d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeLifetimeStatsViewModel , IsDesignTimeCreatable=True}"
              Height="300" Width="600">
 
-    <Label FontSize="72">HELLO WORLD</Label>
+    
+    <Grid>
+        <elements:FourColumnRow>
+            <elements:FourColumnRow.ColumnOne>
+                <TextBlock TextAlignment="Center">
+                    <TextBlock.Text><MultiBinding StringFormat="Kills: {0}"><Binding Path="Kills"></Binding></MultiBinding></TextBlock.Text>
+                </TextBlock>
+            </elements:FourColumnRow.ColumnOne>
+            <elements:FourColumnRow.ColumnTwo>
+                <TextBlock TextAlignment="Center">
+                    <TextBlock.Text><MultiBinding StringFormat="Deaths: {0}"><Binding Path="Deaths"></Binding></MultiBinding></TextBlock.Text>
+                </TextBlock>
+            </elements:FourColumnRow.ColumnTwo>
+            <elements:FourColumnRow.ColumnThree>
+                <TextBlock TextAlignment="Center">
+                    <TextBlock.Text><MultiBinding StringFormat="K/D: {0}"><Binding Path="KillDeathRatio"></Binding></MultiBinding></TextBlock.Text>
+                </TextBlock>
+            </elements:FourColumnRow.ColumnThree>
+            <elements:FourColumnRow.ColumnFour>
+                <TextBlock TextAlignment="Center">
+                    <TextBlock.Text><MultiBinding StringFormat="Damage: {0}"><Binding Path="DamageDone"></Binding></MultiBinding></TextBlock.Text>
+                </TextBlock>
+            </elements:FourColumnRow.ColumnFour>
+        </elements:FourColumnRow>
+    </Grid>
 </UserControl>
 

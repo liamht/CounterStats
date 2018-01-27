@@ -18,10 +18,7 @@ namespace CounterStats.Business
         public CsGoStats GetCsgoStats(string steamId)
         {
             var result = _apiCaller.GetUserStatsForCounterStrikeGlobalOffensive(steamId);
-            return new CsGoStats()
-            {
-                Kills =  long.Parse(result.Single(c => c.Name == "total_kills").Value)
-            };
+            return new CsGoStats(result);
         }
     }
 }
