@@ -1,4 +1,7 @@
-﻿using CounterStats.UI.ViewModels;
+﻿using CounterStats.ApiCaller;
+using CounterStats.ApiCaller.HttpWebClient;
+using CounterStats.Business;
+using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.DesignTimeViewModels
 {
@@ -6,7 +9,7 @@ namespace CounterStats.UI.DesignTimeViewModels
     {
         public long Kills => 23123;
 
-        public DesignTimeLifetimeStatsViewModel() : base(null)
+        public DesignTimeLifetimeStatsViewModel() : base(new LifetimeStatisticsFetcher(new SteamApiCaller(new HttpWebClient())))
         {
         }
     }
