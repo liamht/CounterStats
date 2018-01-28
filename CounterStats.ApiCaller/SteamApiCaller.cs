@@ -9,17 +9,18 @@ namespace CounterStats.ApiCaller
 {
     public sealed class SteamApiCaller : ISteamApiCaller
     {
-        private const string API_KEY = "21F57B48034A17C22F1E49FD0C27D507";
+        private string _apiKey;
         private IHttpWebClient _client;
 
-        public SteamApiCaller(IHttpWebClient client)
+        public SteamApiCaller(IHttpWebClient client, string apiKey)
         {
+            _apiKey = apiKey;
             _client = client;
         }
 
         public GetPlayerSummariesReturnValue GetPlayerSummaries(string steamId)
         {
-            var url = $"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={API_KEY}&steamids={steamId}";
+            var url = $"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key={_apiKey}&steamids={steamId}";
 
             var jsonString = _client.DownloadString(url);
             
@@ -34,7 +35,7 @@ namespace CounterStats.ApiCaller
         public List<GetUserStatsForGameReturnValue> GetUserStatsForCounterStrikeGlobalOffensive(string steamId)
         {
             var url =$"http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/" +
-                $"?appid=730&key={API_KEY}&steamid={steamId}";
+                $"?appid=730&key={_apiKey}&steamid={steamId}";
 
             var jsonString = _client.DownloadString(url);
 
