@@ -27,6 +27,5 @@ namespace CounterStats.Business.Entities
             FiveSevenKills = stats.Single(c => c.Name == "total_kills_fiveseven").Value.ToLong();
             P2000Kills = stats.Single(c => c.Name == "total_kills_hkp2000").Value.ToLong();
         }
-
     }
 }

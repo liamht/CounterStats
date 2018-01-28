@@ -17,9 +17,10 @@ namespace CounterStats.UI.DesignTimeViewModels
         public double KillsPerRound => 1.01;
         public double Accuracy => 0.5;
 
-        public long PistolKills = 2111;
-        public long AssaultRifleKills = 4587;
+        public long PistolKills => 2111;
+        public long AssaultRifleKills => 4587;
         public long SubmachineGunKills => 2201;
+        public long ShotgunKills => 1201;
 
         public DesignTimeLifetimeStatsViewModel() 
         {

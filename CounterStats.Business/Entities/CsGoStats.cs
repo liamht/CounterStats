@@ -35,7 +35,9 @@ namespace CounterStats.Business.Entities
         public AssaultRifleKillStats AssaultRifleKills { get; }
 
         public SubmachineGunKills SubmachineGunKills { get; }
-        
+
+        public ShotgunGunKills ShotgunKills { get; private set; }
+
         internal CsGoStats(List<GetUserStatsForGameReturnValue> stats)
         {
             Kills = stats.Single(c => c.Name == "total_kills").Value.ToLong();
@@ -53,6 +55,7 @@ namespace CounterStats.Business.Entities
             PistolKills = new PistolKillStats(stats);
             AssaultRifleKills = new AssaultRifleKillStats(stats);
             SubmachineGunKills = new SubmachineGunKills(stats);
+            ShotgunKills = new ShotgunGunKills(stats);
         }
     }
 

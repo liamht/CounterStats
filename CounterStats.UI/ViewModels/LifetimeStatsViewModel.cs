@@ -27,6 +27,8 @@ namespace CounterStats.UI.ViewModels
 
         public long AssaultRifleKills { get; set; }
 
+        public long ShotgunKills { get; set; }
+
         public long SubmachineGunKills { get; set; }
 
         public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
@@ -47,6 +49,7 @@ namespace CounterStats.UI.ViewModels
             PistolKills = stats.PistolKills.Total;
             AssaultRifleKills = stats.AssaultRifleKills.Total;
             SubmachineGunKills = stats.SubmachineGunKills.Total;
+            ShotgunKills = stats.ShotgunKills.Total;
         }
     }
 }
