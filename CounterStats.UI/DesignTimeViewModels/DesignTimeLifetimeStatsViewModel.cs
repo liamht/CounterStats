@@ -21,6 +21,7 @@ namespace CounterStats.UI.DesignTimeViewModels
         public long AssaultRifleKills => 4587;
         public long SubmachineGunKills => 2201;
         public long ShotgunKills => 1201;
+        public long LightMachinegunKills => 540;
 
         public DesignTimeLifetimeStatsViewModel() 
         {

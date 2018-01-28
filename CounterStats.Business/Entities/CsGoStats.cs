@@ -36,7 +36,9 @@ namespace CounterStats.Business.Entities
 
         public SubmachineGunKills SubmachineGunKills { get; }
 
-        public ShotgunGunKills ShotgunKills { get; private set; }
+        public ShotgunKills ShotgunKills { get; }
+
+        public LightMachinegunKills LightMachinegunKills { get; }
 
         internal CsGoStats(List<GetUserStatsForGameReturnValue> stats)
         {
@@ -55,7 +57,8 @@ namespace CounterStats.Business.Entities
             PistolKills = new PistolKillStats(stats);
             AssaultRifleKills = new AssaultRifleKillStats(stats);
             SubmachineGunKills = new SubmachineGunKills(stats);
-            ShotgunKills = new ShotgunGunKills(stats);
+            ShotgunKills = new ShotgunKills(stats);
+            LightMachinegunKills = new LightMachinegunKills(stats);
         }
     }
 

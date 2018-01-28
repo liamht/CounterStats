@@ -4,7 +4,7 @@ using CounterStats.ApiCaller;
 
 namespace CounterStats.Business.Entities
 {
-    public class ShotgunGunKills
+    public class ShotgunKills
     {
         public long SawedOffKills { get; }
         public long NovaKills { get; }
@@ -13,7 +13,7 @@ namespace CounterStats.Business.Entities
 
         public long Total => SawedOffKills + NovaKills + Xm1014Kills + Mag7Kills;
 
-        internal ShotgunGunKills(List<GetUserStatsForGameReturnValue> stats)
+        internal ShotgunKills(List<GetUserStatsForGameReturnValue> stats)
         {
             SawedOffKills = stats.Single(c => c.Name == "total_kills_sawedoff").Value.ToLong();
             NovaKills = stats.Single(c => c.Name == "total_kills_nova").Value.ToLong();

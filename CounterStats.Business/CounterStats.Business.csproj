@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AssaultRifleKillStats.cs" />
+    <Compile Include="Entities\LightMachinegunKills.cs" />
     <Compile Include="Entities\PistolKillStats.cs" />
-    <Compile Include="Entities\ShotgunGunKills.cs" />
+    <Compile Include="Entities\ShotgunKills.cs" />
     <Compile Include="Entities\SubmachineGunKills.cs" />
     <Compile Include="Events\CsgoStateChangeEventArgs.cs" />
     <Compile Include="CurrentGameUpdater.cs" />
