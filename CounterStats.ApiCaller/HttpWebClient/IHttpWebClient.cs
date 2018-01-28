@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CounterStats.ApiCaller.HttpWebClient
+﻿namespace CounterStats.ApiCaller.HttpWebClient
 {
     public interface IHttpWebClient
     {

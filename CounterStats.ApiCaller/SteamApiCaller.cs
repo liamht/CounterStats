@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using CounterStats.ApiCaller.Entities;
 using CounterStats.ApiCaller.HttpWebClient;
 using Newtonsoft.Json;

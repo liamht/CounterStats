@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using CounterStats.ApiCaller;
+﻿using CounterStats.ApiCaller;
 using CounterStats.Business.Entities;
 using CounterStats.Business.Interfaces;
 

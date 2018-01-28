@@ -1,8 +1,4 @@
 ﻿using System;
-using CounterStats.ApiCaller;
-using CounterStats.ApiCaller.HttpWebClient;
-using CounterStats.Business;
-using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.DesignTimeViewModels
 {

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CounterStats.UI.ViewModels;
+﻿using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views.Elements;
-using Moq;
 using NUnit.Framework;
 
 namespace CounterStrats.UI.Test.ViewModels

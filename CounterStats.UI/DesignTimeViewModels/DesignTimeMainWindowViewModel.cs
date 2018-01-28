@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views;
 using CounterStats.UI.Views.CurrentGame;
 using CounterStats.UI.Views.Elements;

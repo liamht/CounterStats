@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CounterStats.ApiCaller;
+﻿using CounterStats.ApiCaller;
 using CounterStats.ApiCaller.HttpWebClient;
 using Moq;
 using NUnit.Framework;

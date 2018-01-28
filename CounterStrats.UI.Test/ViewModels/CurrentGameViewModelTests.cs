@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.Components.DictionaryAdapter;
+﻿using System.Collections.Generic;
 using CounterStats.UI.ViewModels;
 using Moq;
 using NUnit.Framework;

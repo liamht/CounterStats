@@ -1,5 +1,4 @@
 ﻿using System;
-using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.DesignTimeViewModels
 {
