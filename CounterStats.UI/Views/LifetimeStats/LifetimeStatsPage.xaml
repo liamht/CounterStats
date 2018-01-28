@@ -93,7 +93,7 @@
                         <StackPanel HorizontalAlignment="Center">
                             <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 5" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_ump45.svg}"/>
                             <TextBlock HorizontalAlignment="Center">Sub-machine Guns</TextBlock>
-                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 10 0 0" FontSize="20" Content="544"></Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 10 0 0" FontSize="20" Content="{Binding SubmachineGunKills}"></Label>
                         </StackPanel>
                     </elements:FourColumnRow.ColumnTwo>
 
