@@ -6,8 +6,9 @@ namespace CounterStats.UI.Views.AppSettings
 {
     public partial class AppSettingsPage : UserControl
     {
-        public AppSettingsPage()
+        public AppSettingsPage(AppSettingsViewModel vm)
         {
+            DataContext = vm;
             InitializeComponent();
         }
     }

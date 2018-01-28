@@ -49,6 +49,7 @@ namespace CounterStats.UI.Views
             _container.Bind<CurrentGameViewModel>().To<CurrentGameViewModel>();
             _container.Bind<MainWindowViewModel>().To<MainWindowViewModel>();
             _container.Bind<LifetimeStatsViewModel>().To<LifetimeStatsViewModel>();
+            _container.Bind<AppSettingsViewModel>().To<AppSettingsViewModel>();
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
             _container.Bind<ISteamApiCaller>().To<SteamApiCaller>()
