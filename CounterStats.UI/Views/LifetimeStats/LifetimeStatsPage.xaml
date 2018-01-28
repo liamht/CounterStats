@@ -139,10 +139,11 @@
                             <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding CloseQuartersKills}"></Label>
                         </StackPanel>
                     </elements:FourColumnRow.ColumnThree>
-
+<!--
                     <elements:FourColumnRow.ColumnFour>
                             <Button VerticalAlignment="Center" Margin="15">View Kills by Gun</Button>
                     </elements:FourColumnRow.ColumnFour>
+-->
 
                 </elements:FourColumnRow>
 
