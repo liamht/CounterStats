@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using CounterStats.ApiCaller;
 using CounterStats.ApiCaller.HttpWebClient;
@@ -49,7 +51,7 @@ namespace CounterStats.UI.Views
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
             _container.Bind<ISteamApiCaller>().To<SteamApiCaller>()
-                .WithConstructorArgument(@"apiKey", SteamApiKey.Value);
+                .WithConstructorArgument(@"apiKey", ConfigurationManager.AppSettings.Get("SteamApiKey"));
 
             _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));

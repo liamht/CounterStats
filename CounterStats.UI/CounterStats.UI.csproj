@@ -270,33 +270,33 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_hegrenade.svg">
+    <Resource Include="Views\Resources\Images\Guns\weapon_hegrenade.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_knife.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_knife.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_negev.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_negev.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_nova.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_nova.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_taser.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_taser.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_ump45.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_ump45.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_ak47.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_ak47.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_awp.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_awp.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_deagle.svg">
+    </Resource>
+    <Resource Include="Views\Resources\Images\Guns\weapon_deagle.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Resource>
     <Resource Include="Views\Resources\Images\Guns\weapon_m4a1_silencer.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
