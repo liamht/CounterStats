@@ -33,6 +33,10 @@ namespace CounterStats.UI.ViewModels
 
         public long LightMachinegunKills { get; set; }
 
+        public long EquipmentKills { get; set; }
+        
+        public long CloseQuartersKills { get; set; }
+
         public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
         {
             _fetcher = fetcher;
@@ -53,6 +57,8 @@ namespace CounterStats.UI.ViewModels
             SubmachineGunKills = stats.SubmachineGunKills.Total;
             ShotgunKills = stats.ShotgunKills.Total;
             LightMachinegunKills = stats.LightMachinegunKills.Total;
+            EquipmentKills = stats.EquipmentKills.Total;
+            CloseQuartersKills = stats.CloseQuartersKills.Total;
         }
     }
 }

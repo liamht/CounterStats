@@ -40,6 +40,9 @@ namespace CounterStats.Business.Entities
 
         public LightMachinegunKills LightMachinegunKills { get; }
 
+        public EquipmentKills EquipmentKills { get; }
+        public CloseQuartersKills CloseQuartersKills{ get; }
+
         internal CsGoStats(List<GetUserStatsForGameReturnValue> stats)
         {
             Kills = stats.Single(c => c.Name == "total_kills").Value.ToLong();
@@ -59,6 +62,8 @@ namespace CounterStats.Business.Entities
             SubmachineGunKills = new SubmachineGunKills(stats);
             ShotgunKills = new ShotgunKills(stats);
             LightMachinegunKills = new LightMachinegunKills(stats);
+            EquipmentKills = new EquipmentKills(stats);
+            CloseQuartersKills = new CloseQuartersKills(stats);
         }
     }
 

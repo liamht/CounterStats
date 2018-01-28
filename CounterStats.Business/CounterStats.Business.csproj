@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AssaultRifleKillStats.cs" />
+    <Compile Include="Entities\CloseQuartersKills.cs" />
+    <Compile Include="Entities\EquipmentKills.cs" />
     <Compile Include="Entities\LightMachinegunKills.cs" />
     <Compile Include="Entities\PistolKillStats.cs" />
     <Compile Include="Entities\ShotgunKills.cs" />
