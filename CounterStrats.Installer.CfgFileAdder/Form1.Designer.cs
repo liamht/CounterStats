@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -45,7 +46,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(52)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(374, 108);
+            this.button1.Location = new System.Drawing.Point(374, 152);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 32);
             this.button1.TabIndex = 0;
@@ -56,7 +57,7 @@
             // textBox1
             // 
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.Location = new System.Drawing.Point(42, 115);
+            this.textBox1.Location = new System.Drawing.Point(42, 159);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(326, 20);
             this.textBox1.TabIndex = 1;
@@ -64,7 +65,7 @@
             // ErrorMessage
             // 
             this.ErrorMessage.ForeColor = System.Drawing.Color.Coral;
-            this.ErrorMessage.Location = new System.Drawing.Point(39, 146);
+            this.ErrorMessage.Location = new System.Drawing.Point(39, 190);
             this.ErrorMessage.Name = "ErrorMessage";
             this.ErrorMessage.Size = new System.Drawing.Size(329, 36);
             this.ErrorMessage.TabIndex = 2;
@@ -95,7 +96,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(52)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(42, 190);
+            this.button2.Location = new System.Drawing.Point(42, 234);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 5;
@@ -112,16 +113,28 @@
             this.label3.Margin = new System.Windows.Forms.Padding(6);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5, 2, 2, 2);
-            this.label3.Size = new System.Drawing.Size(494, 23);
+            this.label3.Size = new System.Drawing.Size(521, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Counter Stats Installer";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label4.Location = new System.Drawing.Point(44, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(389, 39);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "This folder is typically located at:\r\nC:\\Program Files/Steam\\steamapps\\common\\Cou" +
+    "nter-Strike Global Offensive";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(488, 234);
+            this.ClientSize = new System.Drawing.Size(519, 274);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -148,6 +161,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
