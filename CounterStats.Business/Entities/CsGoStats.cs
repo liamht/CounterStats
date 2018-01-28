@@ -32,6 +32,8 @@ namespace CounterStats.Business.Entities
 
         public PistolKillStats PistolKills { get; }
 
+        public AssaultRifleKillStats AssaultRifleKills { get; }
+
 
         internal CsGoStats(List<GetUserStatsForGameReturnValue> stats)
         {
