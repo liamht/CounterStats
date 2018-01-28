@@ -17,7 +17,7 @@ namespace CounterStats.Business.Entities
         public long AugKills { get; }
         public long Scar20Kills { get; }
 
-        public long total => GalilKills + Ak47Kills + Sg553Kills + AwpKills + G3Kills + FamasKills + M4Kills +
+        public long Total => GalilKills + Ak47Kills + Sg553Kills + AwpKills + G3Kills + FamasKills + M4Kills +
                              Ssg08Kills + AugKills + Scar20Kills;
         
         internal AssaultRifleKillStats(List<GetUserStatsForGameReturnValue> stats)

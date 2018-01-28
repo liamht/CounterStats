@@ -50,6 +50,7 @@ namespace CounterStats.Business.Entities
             Headshots = stats.Single(c => c.Name == "total_kills_headshot").Value.ToLong();
             MvpCount = stats.Single(c => c.Name == "total_mvps").Value.ToLong();
             PistolKills = new PistolKillStats(stats);
+            AssaultRifleKills = new AssaultRifleKillStats(stats);
         }
     }
 
