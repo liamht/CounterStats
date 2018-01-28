@@ -142,6 +142,7 @@
     </ApplicationDefinition>
     <Compile Include="DesignTimeViewModels\DesignTimeCurrentGameViewModel.cs" />
     <Compile Include="DesignTimeViewModels\DesignTimeLifetimeStatsViewModel.cs" />
+    <Compile Include="SteamApiKey.cs" />
     <Compile Include="ViewModels\CurrentGameViewModel.cs" />
     <Compile Include="ViewModels\LifetimeStatsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -233,9 +234,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="steam.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

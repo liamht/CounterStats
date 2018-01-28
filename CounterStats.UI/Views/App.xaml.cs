@@ -49,7 +49,7 @@ namespace CounterStats.UI.Views
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
             _container.Bind<ISteamApiCaller>().To<SteamApiCaller>()
-                .WithConstructorArgument(@"apiKey", ConfigurationManager.AppSettings.Get("SteamApiKey"));
+                .WithConstructorArgument(@"apiKey", SteamApiKey.Value);
 
             _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
