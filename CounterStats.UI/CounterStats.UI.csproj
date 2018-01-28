@@ -249,10 +249,6 @@
       <Project>{7007a446-8700-4134-b666-2b5a52fb899f}</Project>
       <Name>CounterStats.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CounterStats.Data\CounterStats.Data.csproj">
-      <Project>{acd77343-0df6-43b7-a80c-4cc9c0a4f935}</Project>
-      <Name>CounterStats.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Resources\Images\score-background.jpg">

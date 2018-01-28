@@ -74,10 +74,6 @@
       <Project>{cbd3c37c-8643-4b98-aa11-e0b087cb3337}</Project>
       <Name>CounterStats.ApiCaller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CounterStats.Data\CounterStats.Data.csproj">
-      <Project>{acd77343-0df6-43b7-a80c-4cc9c0a4f935}</Project>
-      <Name>CounterStats.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
