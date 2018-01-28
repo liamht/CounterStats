@@ -23,6 +23,8 @@ namespace CounterStats.UI.ViewModels
 
         public double Accuracy { get; set; }
 
+        public long PistolKills { get; set; }
+
         public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
         {
             _fetcher = fetcher;
@@ -37,6 +39,7 @@ namespace CounterStats.UI.ViewModels
             Accuracy = Math.Round(stats.ShotsFired / (double) stats.ShotsHit, 2);
             HeadshotPercentage = Math.Round(stats.Kills / (double) stats.Headshots, 2);
             MvpCount = stats.MvpCount;
+            PistolKills = stats.PistolKills.Total;
         }
     }
 }

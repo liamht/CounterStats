@@ -6,30 +6,33 @@ namespace CounterStats.Business.Entities
 {
     public class CsGoStats
     {
-        public long Kills { get; set; }
+        public long Kills { get; }
 
-        public long Deaths { get; set; }
+        public long Deaths { get; }
 
-        public long TimePlayed { get; set; }
+        public long TimePlayed { get; }
 
-        public long BombPlants { get; set; }
+        public long BombPlants { get; }
 
-        public long BombDefuses { get; set; }
+        public long BombDefuses { get; }
 
-        public long Wins { get; set; }
+        public long Wins { get; }
 
-        public long DamageDone { get; set; }
+        public long DamageDone { get; }
 
-        public long RoundsPlayed { get; set; }
+        public long RoundsPlayed { get; }
 
-        public long ShotsFired { get; set; }
+        public long ShotsFired { get; }
 
-        public long ShotsHit { get; set; }
+        public long ShotsHit { get; }
 
-        public long Headshots { get; set; }
+        public long Headshots { get; }
 
-        public long MvpCount { get; set; }
-        
+        public long MvpCount { get; }
+
+        public PistolKillStats PistolKills { get; }
+
+
         internal CsGoStats(List<GetUserStatsForGameReturnValue> stats)
         {
             Kills = stats.Single(c => c.Name == "total_kills").Value.ToLong();
@@ -44,6 +47,7 @@ namespace CounterStats.Business.Entities
             ShotsHit = stats.Single(c => c.Name == "total_shots_hit").Value.ToLong();
             Headshots = stats.Single(c => c.Name == "total_kills_headshot").Value.ToLong();
             MvpCount = stats.Single(c => c.Name == "total_mvps").Value.ToLong();
+            PistolKills = new PistolKillStats(stats);
         }
     }
 

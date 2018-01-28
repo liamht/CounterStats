@@ -268,15 +268,33 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\Resources\Images\Guns\weapon_ak47.svg">
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_hegrenade.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Resources\Images\Guns\weapon_awp.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_knife.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Resources\Images\Guns\weapon_deagle.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_negev.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_nova.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_taser.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_ump45.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_ak47.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_awp.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Resources\Images\Guns\weapon_deagle.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Resource Include="Views\Resources\Images\Guns\weapon_m4a1_silencer.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

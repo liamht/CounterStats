@@ -24,6 +24,8 @@ namespace CounterStats.UI.DesignTimeViewModels
 
         public double Accuracy => 0.5;
 
+        public long PistolKills = 2111;
+
         public DesignTimeLifetimeStatsViewModel() 
         {
         }
