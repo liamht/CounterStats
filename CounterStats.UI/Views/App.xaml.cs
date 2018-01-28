@@ -12,6 +12,7 @@ using CounterStats.UI.Views.Elements;
 using CounterStats.UI.Views.LifetimeStats;
 using CSGSI;
 using Ninject;
+using System.Configuration;
 
 namespace CounterStats.UI.Views
 {
@@ -49,7 +50,8 @@ namespace CounterStats.UI.Views
             _container.Bind<LifetimeStatsViewModel>().To<LifetimeStatsViewModel>();
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
-            _container.Bind<ISteamApiCaller>().To<SteamApiCaller>();
+            _container.Bind<ISteamApiCaller>().To<SteamApiCaller>()
+                .WithConstructorArgument(@"apiKey", ConfigurationManager.AppSettings.Get("SteamApiKey"));
 
             _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
