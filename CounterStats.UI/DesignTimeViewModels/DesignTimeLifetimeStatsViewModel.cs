@@ -12,9 +12,17 @@ namespace CounterStats.UI.DesignTimeViewModels
 
         public long Deaths => 6464;
 
+        public long MvpCount => 61;
+
+        public double HeadshotPercentage => 0.52;
+
         public double KillDeathRatio => Math.Round((double) Kills / (double) Deaths, 2);
 
-        public long DamageDone => 234584;
+        public double AverageDamagePerRound => 156.1;
+
+        public double KillsPerRound => 1.01;
+
+        public double Accuracy => 0.5;
 
         public DesignTimeLifetimeStatsViewModel() 
         {

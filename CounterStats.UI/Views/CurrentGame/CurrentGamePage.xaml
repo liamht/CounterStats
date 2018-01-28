@@ -12,7 +12,7 @@
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
       Background="#171625"
       d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}"
-             Height="300" Width="600">
+             Height="400" Width="750">
 
     <Border BorderBrush="#23212f" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
         <Grid>
@@ -39,9 +39,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="120px"></RowDefinition>
                 <RowDefinition Height="75px"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="200px"></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
     </Border>

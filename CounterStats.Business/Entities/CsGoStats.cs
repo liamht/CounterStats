@@ -26,7 +26,10 @@ namespace CounterStats.Business.Entities
 
         public long ShotsHit { get; set; }
 
+        public long Headshots { get; set; }
 
+        public long MvpCount { get; set; }
+        
         internal CsGoStats(List<GetUserStatsForGameReturnValue> stats)
         {
             Kills = stats.Single(c => c.Name == "total_kills").Value.ToLong();
@@ -39,6 +42,8 @@ namespace CounterStats.Business.Entities
             RoundsPlayed = stats.Single(c => c.Name == "total_rounds_played").Value.ToLong();
             ShotsFired = stats.Single(c => c.Name == "total_shots_fired").Value.ToLong();
             ShotsHit = stats.Single(c => c.Name == "total_shots_hit").Value.ToLong();
+            Headshots = stats.Single(c => c.Name == "total_kills_headshot").Value.ToLong();
+            MvpCount = stats.Single(c => c.Name == "total_mvps").Value.ToLong();
         }
     }
 

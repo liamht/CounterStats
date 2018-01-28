@@ -5,57 +5,75 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="400"
+             d:DesignHeight="150" d:DesignWidth="400"
              xmlns:designTimeViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
              d:DataContext="{d:DesignInstance Type= designTimeViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}">
-        <Grid>
-            <elements:FourColumnRow Grid.Row="0">
-                <elements:FourColumnRow.ColumnOne>
-                    <Label Content="{Binding Kills}" ContentStringFormat="Kills: {0}" 
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnOne>
+    <Grid>
+        <elements:FourColumnRow Grid.Row="0">
+            <elements:FourColumnRow.ColumnOne>
+                <StackPanel>
+                    <Label Content="Kills" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding Kills}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnOne>
 
-                <elements:FourColumnRow.ColumnTwo>
-                    <Label Content="{Binding Deaths}" ContentStringFormat="Deaths: {0}"
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnTwo>
+            <elements:FourColumnRow.ColumnTwo>
+                <StackPanel>
+                    <Label Content="Deaths" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding Deaths}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnTwo>
 
-                <elements:FourColumnRow.ColumnThree>
-                    <Label Content="{Binding MVPs}" ContentStringFormat="MVPs: {0}" 
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnThree>
+            <elements:FourColumnRow.ColumnThree>
+                <StackPanel>
+                    <Label Content="MVPs" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding MVPs}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnThree>
 
-                <elements:FourColumnRow.ColumnFour>
-                    <Label Grid.Column="0" Content="{Binding Score}" ContentStringFormat="Score: {0}" 
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnFour>
-            </elements:FourColumnRow>
+            <elements:FourColumnRow.ColumnFour>
+                <StackPanel>
+                    <Label Content="Score" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding Score}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnFour>
+        </elements:FourColumnRow>
 
-            <elements:FourColumnRow Grid.Row="1">
-                <elements:FourColumnRow.ColumnOne>
-                    <Label Content="{Binding KillDeathRatio}" ContentStringFormat="K/D: {0:N2}" 
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnOne>
+        <elements:FourColumnRow Grid.Row="1">
+            <elements:FourColumnRow.ColumnOne>
+                <StackPanel>
+                    <Label Content="Kill/Death" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding KillDeathRatio}" ContentStringFormat="{}{0:N0}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnOne>
 
-                <elements:FourColumnRow.ColumnTwo>
-                    <Label Content="{Binding Health}" ContentStringFormat="Health: {0}"
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnTwo>
+            <elements:FourColumnRow.ColumnTwo>
 
-                <elements:FourColumnRow.ColumnThree>
-                    <Label Content="{Binding Armor}" ContentStringFormat="Armor: {0}" 
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnThree>
+                <StackPanel>
+                    <Label Content="Health" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding Health}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnTwo>
 
-                <elements:FourColumnRow.ColumnFour>
-                    <Label Grid.Column="0" Content="{Binding DefuseKit}" ContentStringFormat="Kit: {0}" 
-                       HorizontalContentAlignment="Center" HorizontalAlignment="Stretch"/>
-                </elements:FourColumnRow.ColumnFour>
-            </elements:FourColumnRow>
+            <elements:FourColumnRow.ColumnThree>
+                <StackPanel>
+                    <Label Content="Armor" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding Armor}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnThree>
 
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-        </Grid>
+            <elements:FourColumnRow.ColumnFour>
+
+                <StackPanel>
+                    <Label Content="Defuse Kit" HorizontalContentAlignment="Center"/>
+                    <Label FontSize="20" FontWeight="Thin" Content="{Binding DefuseKit}" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </elements:FourColumnRow.ColumnFour>
+        </elements:FourColumnRow>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+    </Grid>
 </UserControl>

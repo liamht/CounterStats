@@ -11,9 +11,17 @@ namespace CounterStats.UI.ViewModels
 
         public long Deaths { get; set; }
 
+        public long MvpCount { get; set; }
+
         public double KillDeathRatio { get; set; }
 
-        public long DamageDone { get; set; }
+        public double AverageDamagePerRound { get; set; }
+
+        public double KillsPerRound { get; set; }
+
+        public double HeadshotPercentage { get; set; }
+
+        public double Accuracy { get; set; }
 
         public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
         {
@@ -23,8 +31,12 @@ namespace CounterStats.UI.ViewModels
 
             Kills = stats.Kills;
             Deaths = stats.Deaths;
-            KillDeathRatio = Math.Round((double)Kills / (double)Deaths, 2);
-            DamageDone = stats.DamageDone;
+            KillDeathRatio = Math.Round(Kills / (double) Deaths, 2);
+            AverageDamagePerRound = Math.Round(stats.DamageDone / (double) stats.RoundsPlayed, 2);
+            KillsPerRound = Math.Round(stats.Kills / (double) stats.RoundsPlayed, 2);
+            Accuracy = Math.Round(stats.ShotsFired / (double) stats.ShotsHit, 2);
+            HeadshotPercentage = Math.Round(stats.Kills / (double) stats.Headshots, 2);
+            MvpCount = stats.MvpCount;
         }
     }
 }

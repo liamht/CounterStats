@@ -17,7 +17,7 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Background="#282834"
         d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeMainWindowViewModel , IsDesignTimeCreatable=True}"
-        MaxHeight="390" MinHeight="390" MaxWidth="600" MinWidth="600"
+        MaxHeight="490" MinHeight="490" MaxWidth="750" MinWidth="750"
         WindowStyle="None"        
         ResizeMode="NoResize"
         AllowsTransparency="True"
@@ -33,7 +33,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="750"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -107,7 +107,7 @@
 
                         </materialDesign:ColorZone>
                      
-                            <ContentControl x:Name="CurrentPage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600"></ContentControl>
+                            <ContentControl x:Name="CurrentPage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="750"></ContentControl>
                     </DockPanel>
 
                 </materialDesign:DrawerHost>
