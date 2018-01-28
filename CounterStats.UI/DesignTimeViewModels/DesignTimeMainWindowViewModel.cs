@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views;
 using CounterStats.UI.Views.CurrentGame;
 using CounterStats.UI.Views.Elements;
 
 namespace CounterStats.UI.DesignTimeViewModels
 {
-    public class DesignTimeMainWindowViewModel : MainWindowViewModel
+    public class DesignTimeMainWindowViewModel
     {
-        public DesignTimeMainWindowViewModel() : base(null)
+        public List<MenuItem> Menu { get; set; }
+
+        public MenuItem SelectedMenuItem { get; set; }
+
+
+        public DesignTimeMainWindowViewModel()
         {
             Menu = GetMainMenu().ToList();
             SelectedMenuItem = Menu.First();

@@ -1,7 +1,4 @@
-﻿using NUnit;
-using CounterStats.Business;
-using CSGSI;
-using Moq;
+﻿using CounterStats.Business;
 using NUnit.Framework;
 
 namespace CounterStrats.Business.Test

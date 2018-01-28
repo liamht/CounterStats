@@ -1,4 +1,4 @@
-﻿namespace CounterStats.Business
+﻿namespace CounterStats.Business.Events
 {
     public class DeathEventArgs
     {

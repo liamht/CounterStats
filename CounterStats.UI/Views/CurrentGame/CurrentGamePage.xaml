@@ -3,11 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:local="clr-namespace:CounterStats.UI"
       xmlns:designViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:views="clr-namespace:CounterStats.UI.Views"
-      xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
       xmlns:partials="clr-namespace:CounterStats.UI.Views.CurrentGame.Partials"
       mc:Ignorable="d" 
       TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
@@ -16,9 +12,7 @@
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
       Background="#171625"
       d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}"
-             Height="300" Width="600">
-
-    <Border BorderBrush="#23212f" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
+             Height="400" Width="750">
         <Grid>
             <Rectangle Grid.RowSpan="5">
                 <Rectangle.Fill>
@@ -43,12 +37,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="120px"></RowDefinition>
                 <RowDefinition Height="75px"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="200px"></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
-    </Border>
 </UserControl>
 
 

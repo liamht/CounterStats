@@ -1,4 +1,5 @@
 ﻿using System;
+using CounterStats.Business.Events;
 
 namespace CounterStats.Business.Interfaces
 {

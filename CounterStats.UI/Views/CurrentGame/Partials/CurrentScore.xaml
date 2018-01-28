@@ -8,7 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="600">
     <Grid Grid.Row="2">
-                <Image Grid.Column="0" Source="/CounterStats;component/Views/Resources/Images/terrorist-icon.png" Height="40px" Width="40px" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 15 0"></Image>
+                <Image Grid.Column="0" Source="/CounterStats;component/Views/Resources/Images/terrorist-icon.png" Height="40px" Width="40px" Stretch="Fill" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0"></Image>
         <TextBlock Grid.Column="1" Foreground="#FEFEFE" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"  Margin="0 0 15 0" >
                     <TextBlock.Text>
                         <MultiBinding StringFormat="{}{0}  {1}">
@@ -34,7 +35,7 @@
                     </TextBlock.Text>
                 </TextBlock>
                 <Image Grid.Column="3" Source="/CounterStats;component/Views/Resources/Images/counter-terrorist-icon.png" Height="40px" Width="40px"
-                       VerticalAlignment="Center" HorizontalAlignment="Right"></Image>
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0"></Image>
 
 
                 <Grid.ColumnDefinitions>

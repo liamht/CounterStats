@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="CounterStats.UI.Views.LifetimeStats.LifetimeStatsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:designViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             Background="#171625"
+             d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeLifetimeStatsViewModel , IsDesignTimeCreatable=True}"
+             Height="400" Width="750">
+        <Grid>
+            <Rectangle Grid.RowSpan="5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF2F2D40" Offset="0.0" />
+                        <GradientStop Color="#222131" Offset="0.2" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image Grid.Row="0" Source="/CounterStats;component/Views/Resources/Images/cache.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+            <StackPanel>
+                <elements:FourColumnRow Margin="0 10 0 0">
+                    <elements:FourColumnRow.ColumnOne>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">Kills</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding Kills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnOne>
+                    <elements:FourColumnRow.ColumnTwo>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">Deaths</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding Deaths}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnTwo>
+                    <elements:FourColumnRow.ColumnThree>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">Kill/Death Ratio</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding KillDeathRatio}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnThree>
+                    <elements:FourColumnRow.ColumnFour>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">MVPs</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding MvpCount}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnFour>
+                </elements:FourColumnRow>
+                <elements:FourColumnRow Margin="0 10 0 0">
+                    <elements:FourColumnRow.ColumnOne>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">Kills per Round</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding KillsPerRound}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnOne>
+                    <elements:FourColumnRow.ColumnTwo>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">Headshot %</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding HeadshotPercentage}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnTwo>
+                    <elements:FourColumnRow.ColumnThree>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">Accuracy</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding Accuracy}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnThree>
+                    <elements:FourColumnRow.ColumnFour>
+                        <StackPanel HorizontalAlignment="Center" >
+                            <Label HorizontalAlignment="Center">ADR</Label>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" FontSize="20" Content="{Binding AverageDamagePerRound}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnFour>
+                </elements:FourColumnRow>
+                <TextBlock HorizontalAlignment="Center" FontSize="18" Margin="0 8" Text="Kills By Weapon Type"></TextBlock>
+                <elements:FourColumnRow Margin="0 10 0 0">
+                    <elements:FourColumnRow.ColumnOne>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_ak47.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Assault Rifles</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding AssaultRifleKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnOne>
+
+
+                    <elements:FourColumnRow.ColumnTwo>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_ump45.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Submachine Guns</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding SubmachineGunKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnTwo>
+
+                    <elements:FourColumnRow.ColumnThree>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_nova.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Shotguns</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding ShotgunKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnThree>
+
+                    <elements:FourColumnRow.ColumnFour>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_negev.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Light Machine Guns</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding LightMachinegunKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnFour>
+
+                </elements:FourColumnRow>
+                <elements:FourColumnRow Margin="0 10">
+                    <elements:FourColumnRow.ColumnOne>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_deagle.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Pistols</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding PistolKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnOne>
+
+
+                    <elements:FourColumnRow.ColumnTwo>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_hegrenade.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Equipment</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding EquipmentKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnTwo>
+
+                    <elements:FourColumnRow.ColumnThree>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Opacity="0.6" Height="20px" Width="60px" Margin="0 0 0 10" Source="{svgc:SvgImage /Views/Resources/Images/Guns/weapon_knife.svg}"/>
+                            <TextBlock HorizontalAlignment="Center">Knife + Zeus</TextBlock>
+                            <Label HorizontalAlignment="Center" FontWeight="Thin" Margin="0 5 0 0" FontSize="20" Content="{Binding CloseQuartersKills}"></Label>
+                        </StackPanel>
+                    </elements:FourColumnRow.ColumnThree>
+<!--
+                    <elements:FourColumnRow.ColumnFour>
+                            <Button VerticalAlignment="Center" Margin="15">View Kills by Gun</Button>
+                    </elements:FourColumnRow.ColumnFour>
+-->
+
+                </elements:FourColumnRow>
+
+
+            </StackPanel>
+        </Grid>
+</UserControl>
+

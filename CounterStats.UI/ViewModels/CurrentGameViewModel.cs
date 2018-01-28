@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Media;
 using System.Windows;
-using CounterStats.Business;
+using CounterStats.Business.Events;
 using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels

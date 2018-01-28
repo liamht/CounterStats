@@ -3,7 +3,7 @@ using System.Linq;
 using CSGSI;
 using CSGSI.Nodes;
 
-namespace CounterStats.Business
+namespace CounterStats.Business.Events
 {
     public class CsgoStateChangeEventArgs
     {

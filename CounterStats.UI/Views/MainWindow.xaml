@@ -17,7 +17,7 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         Background="#282834"
         d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeMainWindowViewModel , IsDesignTimeCreatable=True}"
-        MaxHeight="390" MinHeight="390" MaxWidth="600" MinWidth="600"
+        MaxHeight="490" MinHeight="490" MaxWidth="750" MinWidth="750"
         WindowStyle="None"        
         ResizeMode="NoResize"
         AllowsTransparency="True"
@@ -33,7 +33,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="750"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -106,21 +106,8 @@
                             </DockPanel>
 
                         </materialDesign:ColorZone>
-                        <ContentControl x:Name="CurrentGame">
-                            <ContentControl.Style>
-                                <Style TargetType="ContentControl">
-                                    <Style.Setters>
-                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                    </Style.Setters>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding SelectedIndex, ElementName=MainMenu, Mode=TwoWay}" Value="0">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ContentControl.Style>
-                            <ContentControl x:Name="CurrentPage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600"></ContentControl>
-                        </ContentControl>
+                     
+                            <ContentControl x:Name="CurrentPage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="750"></ContentControl>
                     </DockPanel>
 
                 </materialDesign:DrawerHost>

@@ -2,6 +2,7 @@
 using CSGSI;
 using CSGSI.Nodes;
 using CounterStats.ApiCaller;
+using CounterStats.Business.Events;
 using CounterStats.Business.Interfaces;
 
 namespace CounterStats.Business
