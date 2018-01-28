@@ -13,6 +13,7 @@ using CounterStats.UI.Views.LifetimeStats;
 using CSGSI;
 using Ninject;
 using System.Configuration;
+using CounterStats.UI.Views.AppSettings;
 
 namespace CounterStats.UI.Views
 {
@@ -56,8 +57,8 @@ namespace CounterStats.UI.Views
             _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
             
-            var menu = GetMainMenu();
-            _container.Bind<IMainMenu>().ToConstant(menu);
+            _container.Bind<IMainMenu>().ToConstant(GetMainMenu());
+            _container.Bind<IBottomMenu>().ToConstant(GetBottomMenu());
         }
 
         protected internal IMainMenu GetMainMenu()
@@ -84,5 +85,19 @@ namespace CounterStats.UI.Views
             };
         }
 
+        protected internal IBottomMenu GetBottomMenu()
+        {
+            return new MainMenu()
+            {
+                new MenuItem() {Text = "Application Settings", OnClick = () =>
+                {
+                    var mainWindow = (Current.MainWindow as MainWindow);
+                    if (mainWindow != null)
+                    {
+                        mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
+                    }
+                }}
+            };
+        }
     }
 }

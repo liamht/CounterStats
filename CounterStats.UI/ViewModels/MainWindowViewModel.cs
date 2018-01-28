@@ -26,10 +26,13 @@ namespace CounterStats.UI.ViewModels
         public bool PlayQuakeSounds { get; set; }
 
         public List<MenuItem> Menu { get; set; }
+        public List<MenuItem> BottomMenu { get; set; }
 
-        public MainWindowViewModel(IMainMenu mainMenu)
+        public MainWindowViewModel(IMainMenu mainMenu, IBottomMenu bottomMenu)
         {
             Menu = mainMenu.ToList();
+            BottomMenu = bottomMenu.ToList();
+            
             PlayQuakeSounds = Properties.Settings.Default.PlayQuakeSounds;
         }
 

@@ -8,7 +8,12 @@ namespace CounterStats.UI.Views.Elements
         
     }
 
-    public class MainMenu : List<MenuItem>, IMainMenu
+    public interface IBottomMenu : IList<MenuItem>
+    {
+
+    }
+
+    public class MainMenu : List<MenuItem>, IMainMenu, IBottomMenu
     {
         
     }

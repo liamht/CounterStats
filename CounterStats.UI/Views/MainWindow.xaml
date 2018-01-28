@@ -70,14 +70,22 @@
         <!--Content-->
         <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
-            <materialDesign:DialogHost Identifier="RootDialog">
-                <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <materialDesign:DialogHost Identifier="RootDialog" VerticalAlignment="Stretch">
+                <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" VerticalAlignment="Stretch">
                   <materialDesign:DrawerHost.LeftDrawerContent>
-                        <DockPanel MinWidth="212" Background="#282834">
+                        <DockPanel MinWidth="212" MinHeight="490" VerticalAlignment="Stretch" Background="#282834">
                             <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" DockPanel.Dock="Top" 
                                           HorizontalAlignment="Right" Margin="16" IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                            <ListBox x:Name="MainMenu" Margin="0 16 0 16" SelectedIndex="0"                         
+                            <ListBox x:Name="MainMenu" DockPanel.Dock="Top" Margin="0 16 0 16" SelectedIndex="0" Height="315"                         
                                      ItemsSource="{Binding Menu}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="elements:MenuItem">
+                                        <TextBlock Text="{Binding Text}" Margin="32 0 32 0" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <ListBox x:Name="BottomMenu" DockPanel.Dock="Bottom" Margin="0 16 0 16" SelectedIndex="0"                         
+                                     ItemsSource="{Binding BottomMenu}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate DataType="elements:MenuItem">
                                         <TextBlock Text="{Binding Text}" Margin="32 0 32 0" />
