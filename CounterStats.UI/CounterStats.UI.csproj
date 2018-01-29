@@ -183,7 +183,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\AppSettings\LifetimeStatsPage.xaml">
+    <Page Include="Views\AppSettings\AppSettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -200,8 +200,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DesignTimeViewModels\DesignTimeMainWindowViewModel.cs" />
-    <Compile Include="Views\AppSettings\LifetimeStatsPage.xaml.cs">
-      <DependentUpon>LifetimeStatsPage.xaml</DependentUpon>
+    <Compile Include="Views\AppSettings\AppSettingsPage.xaml.cs">
+      <DependentUpon>AppSettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LifetimeStats\LifetimeStatsPage.xaml.cs">
       <DependentUpon>LifetimeStatsPage.xaml</DependentUpon>
