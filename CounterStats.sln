@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStrats.UI.Test", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStrats.ApiCaller.Test", "CounterStrats.ApiCaller.Test\CounterStrats.ApiCaller.Test.csproj", "{EA7B594F-7B5A-4A16-A7D8-5BB4C20AA82A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStats.Authenticator.Web", "CounterStats.Authenticator.Web\CounterStats.Authenticator.Web.csproj", "{D4EE364D-FAE4-4ADE-969A-E2CBACC29928}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{EA7B594F-7B5A-4A16-A7D8-5BB4C20AA82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7B594F-7B5A-4A16-A7D8-5BB4C20AA82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7B594F-7B5A-4A16-A7D8-5BB4C20AA82A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EE364D-FAE4-4ADE-969A-E2CBACC29928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EE364D-FAE4-4ADE-969A-E2CBACC29928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EE364D-FAE4-4ADE-969A-E2CBACC29928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EE364D-FAE4-4ADE-969A-E2CBACC29928}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
