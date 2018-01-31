@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using CounterStats.UI.Commands;
+using CounterStats.UI.Views;
 using CounterStats.UI.Views.Elements;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -10,6 +11,8 @@ namespace CounterStats.UI.ViewModels
     {
         public ICommand OpenFolderDialog => new ActionCommand(OpenDialog);
         public ICommand LoginCommand => new ActionCommand(async () => Login());
+
+        public string UserId { get; set; }
 
 
         public AppSettingsViewModel()
@@ -26,10 +29,12 @@ namespace CounterStats.UI.ViewModels
         public async void Login()
         {
 // todo: Add URL's for real authentication implementation
-            var url = "";
-            var responseUrl = "";
+            var url = "http://counterstats-app.com/Account/Login";
+            var responseUrl = "http://counterstats-app.com/Account/Confirmed";
             var authenticator = new SteamBrowserAuthenticator(url, responseUrl);
-            await authenticator.GetUsersSteamId();
+           var userId = await authenticator.GetUsersSteamId();
+
+            UserId = userId;
         }
     }
 }

@@ -14,7 +14,6 @@ namespace CounterStats.Authenticator.Web.Controllers
         {
         }
         
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -42,9 +41,13 @@ namespace CounterStats.Authenticator.Web.Controllers
             }
 
             var steamId = loginInfo.Login.ProviderKey.Split('/').Last();
-            return RedirectToAction("Index", "Home", new {steamId = steamId});
+            return RedirectToAction("Confirmed", new {steamId = steamId});
         }
-
+        
+        public ActionResult Confirmed(string steamId)
+        {
+            return Content(steamId);
+        }
         
         #region Helpers
         // Used for XSRF protection when adding external logins

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,7 +37,7 @@ namespace CounterStats.UI.Views.Elements
                 {
                     e.Cancel = true;
 
-                    result = ProcessResponse(browser);
+                    result = e.Uri.ToString().Split('/').Last();
 
                     limiter.Release();
 
@@ -56,11 +57,6 @@ namespace CounterStats.UI.Views.Elements
             await limiter.WaitAsync();
 
             return result;
-        }
-
-        private string ProcessResponse(WebBrowser webBrowser)
-        {
-            throw new NotImplementedException();
         }
 
         private bool BrowserIsNavigatingToRedirectUri(Uri uri)

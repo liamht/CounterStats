@@ -15,7 +15,11 @@
              d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeAppSettingsViewModel , IsDesignTimeCreatable=True}"
              Height="400" Width="750">
     <StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="15">
+            <Label>Authenticate with Steam   </Label>
+            <Button Command="{Binding LoginCommand}" Width="100">Login</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="15">
             <Label>Change Counter Strike Folder Location</Label>
             <Button Command="{Binding OpenFolderDialog}" Width="100">Change</Button>
         </StackPanel>
