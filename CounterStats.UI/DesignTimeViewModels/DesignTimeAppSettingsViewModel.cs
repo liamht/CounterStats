@@ -12,6 +12,7 @@ namespace CounterStats.UI.DesignTimeViewModels
     public class DesignTimeAppSettingsViewModel
     {
         public ICommand OpenFolderDialog { get; set; }
+        public ICommand LoginCommand => new ActionCommand(() => { });
 
         public DesignTimeAppSettingsViewModel()
         {

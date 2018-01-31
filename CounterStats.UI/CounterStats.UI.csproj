@@ -169,6 +169,7 @@
     <Compile Include="Views\CurrentGame\Partials\CurrentScore.xaml.cs">
       <DependentUpon>CurrentScore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Elements\SteamBrowserAuthenticator.cs" />
     <Compile Include="Views\Elements\TwoColumnRow.xaml.cs">
       <DependentUpon>TwoColumnRow.xaml</DependentUpon>
     </Compile>
