@@ -41,7 +41,7 @@ namespace CounterStats.UI.ViewModels
         {
             _fetcher = fetcher;
 
-            var stats = _fetcher.GetCsgoStats("76561198442886149");
+            var stats = _fetcher.GetCsgoStats(Properties.Settings.Default.SteamId);
 
             Kills = stats.Kills;
             Deaths = stats.Deaths;
