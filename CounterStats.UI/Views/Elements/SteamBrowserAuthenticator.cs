@@ -7,15 +7,8 @@ using System.Windows.Controls;
 
 namespace CounterStats.UI.Views.Elements
 {
-    public class SteamBrowserAuthenticator
+    public class SteamBrowserAuthenticator : ISteamBrowserAuthenticator
     {
-        public Uri RequestUri { get; set; }
-        public Uri ResponseUri { get; set; }
-
-        public SteamBrowserAuthenticator()
-        {
-        }
-
         public async Task<string> GetUsersSteamId()
         {
             var browser = new WebBrowser();
