@@ -34,5 +34,17 @@ namespace CounterStats.UI.Properties {
                 this["PlayQuakeSounds"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SteamId {
+            get {
+                return ((string)(this["SteamId"]));
+            }
+            set {
+                this["SteamId"] = value;
+            }
+        }
     }
 }

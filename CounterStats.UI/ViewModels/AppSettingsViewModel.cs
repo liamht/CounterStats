@@ -25,14 +25,14 @@ namespace CounterStats.UI.ViewModels
         {
             var dialog = new CommonOpenFileDialog();
             dialog.IsFolderPicker = true;
-            CommonFileDialogResult result = dialog.ShowDialog();
+            var result = dialog.ShowDialog();
         }
 
         public async void Login()
         {
            var userId = await _authenticator.GetUsersSteamId();
 
-            UserId = userId;
+           Properties.Settings.Default.SteamId = userId;
         }
     }
 }
