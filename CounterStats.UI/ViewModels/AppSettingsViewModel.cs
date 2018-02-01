@@ -28,10 +28,7 @@ namespace CounterStats.UI.ViewModels
 
         public async void Login()
         {
-// todo: Add URL's for real authentication implementation
-            var url = "http://counterstats-app.com/Account/Login";
-            var responseUrl = "http://counterstats-app.com/Account/Confirmed";
-            var authenticator = new SteamBrowserAuthenticator(url, responseUrl);
+           var authenticator = new SteamBrowserAuthenticator();
            var userId = await authenticator.GetUsersSteamId();
 
             UserId = userId;

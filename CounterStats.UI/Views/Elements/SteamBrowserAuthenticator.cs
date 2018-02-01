@@ -12,10 +12,8 @@ namespace CounterStats.UI.Views.Elements
         public Uri RequestUri { get; set; }
         public Uri ResponseUri { get; set; }
 
-        public SteamBrowserAuthenticator(string requestLocation, string responseLocation)
+        public SteamBrowserAuthenticator()
         {
-            RequestUri = new Uri(requestLocation);
-            ResponseUri = new Uri(responseLocation);
         }
 
         public async Task<string> GetUsersSteamId()
@@ -37,7 +35,7 @@ namespace CounterStats.UI.Views.Elements
                 {
                     e.Cancel = true;
 
-                    result = e.Uri.ToString().Split('/').Last();
+                    result = e.Uri.ToString().Split('=').Last();
 
                     limiter.Release();
 
@@ -52,7 +50,8 @@ namespace CounterStats.UI.Views.Elements
 
             window.Content = browser;
             window.Show();
-            browser.Source = RequestUri;
+            var url = new Uri("http://counterstats-app.com/Account/Login");
+            browser.Source = url;
 
             await limiter.WaitAsync();
 
@@ -61,7 +60,8 @@ namespace CounterStats.UI.Views.Elements
 
         private bool BrowserIsNavigatingToRedirectUri(Uri uri)
         {
-            return uri.AbsoluteUri.StartsWith(ResponseUri.AbsoluteUri);
+            var expectedUri = "http://counterstats-app.com/Account/Confirmed";
+            return uri.AbsoluteUri.StartsWith(expectedUri);
         }
     }
 }
