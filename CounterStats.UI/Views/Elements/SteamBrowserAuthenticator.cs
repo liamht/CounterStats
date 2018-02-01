@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using CefSharp.Wpf;
 
 namespace CounterStats.UI.Views.Elements
 {
@@ -11,28 +15,25 @@ namespace CounterStats.UI.Views.Elements
     {
         public async Task<string> GetUsersSteamId()
         {
-            var browser = new WebBrowser();
-            var limiter = new SemaphoreSlim(0, 1);
-            var result = String.Empty;
-
             var window = new Window()
             {
                 Width = 900,
                 Height = 625,
                 Title = "Log in to Steam"
             };
+            var browser = new ChromiumWebBrowser();
+            var limiter = new SemaphoreSlim(0, 1);
+            var result = String.Empty;
 
-            browser.Navigating += (s, e) =>
+            browser.LoadingStateChanged += (sender, e) =>
             {
-                if (BrowserIsNavigatingToRedirectUri(e.Uri))
+                if (BrowserIsNavigatingToRedirectUrl(e.Browser.MainFrame.Url))
                 {
-                    e.Cancel = true;
-
-                    result = e.Uri.ToString().Split('=').Last();
-
-                    limiter.Release();
-
-                    window.Close();
+                    result = e.Browser.MainFrame.Url.ToString().Split('=').Last();
+                    window.Dispatcher.Invoke(() =>
+                    {
+                        window.Close();
+                    }); 
                 }
             };
 
@@ -43,18 +44,18 @@ namespace CounterStats.UI.Views.Elements
 
             window.Content = browser;
             window.Show();
-            var url = new Uri("http://counterstats-app.com/Account/Login");
-            browser.Source = url;
+            var url = "http://counterstats-app.com/Account/Login";
+            browser.Load(url);
 
             await limiter.WaitAsync();
 
             return result;
         }
 
-        private bool BrowserIsNavigatingToRedirectUri(Uri uri)
+        private bool BrowserIsNavigatingToRedirectUrl(string uri)
         {
             var expectedUri = "http://counterstats-app.com/Account/Confirmed";
-            return uri.AbsoluteUri.StartsWith(expectedUri);
+            return uri.StartsWith(expectedUri);
         }
     }
 }
