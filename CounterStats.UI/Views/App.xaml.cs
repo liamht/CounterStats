@@ -52,6 +52,7 @@ namespace CounterStats.UI.Views
             _container.Bind<AppSettingsViewModel>().To<AppSettingsViewModel>();
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
+            _container.Bind<ISteamBrowserAuthenticator>().To<SteamBrowserAuthenticator>();
             _container.Bind<ISteamApiCaller>().To<SteamApiCaller>()
                 .WithConstructorArgument(@"apiKey", SteamApiKey.Value);
 

@@ -14,9 +14,11 @@ namespace CounterStats.UI.ViewModels
 
         public string UserId { get; set; }
 
+        private ISteamBrowserAuthenticator _authenticator;
 
-        public AppSettingsViewModel()
+        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator)
         {
+            _authenticator = authenticator;
         }
 
         public void OpenDialog()
@@ -28,8 +30,7 @@ namespace CounterStats.UI.ViewModels
 
         public async void Login()
         {
-           var authenticator = new SteamBrowserAuthenticator();
-           var userId = await authenticator.GetUsersSteamId();
+           var userId = await _authenticator.GetUsersSteamId();
 
             UserId = userId;
         }
