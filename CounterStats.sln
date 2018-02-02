@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStats.Business", "Co
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CounterStats.Installer", "CounterStats.Installer\CounterStats.Installer.vdproj", "{E83629C2-AB49-40E8-A420-A0F9AEDAA14F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStrats.Installer.CfgFileAdder", "CounterStrats.Installer.CfgFileAdder\CounterStrats.Installer.CfgFileAdder.csproj", "{873A0CE1-1619-41F7-A42B-1D7CE485957D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{DE1A7FBD-292D-4723-BCD8-C3CD53DCEFB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterStrats.Business.Test", "CounterStrats.Business.Test\CounterStrats.Business.Test.csproj", "{B7D6F626-516A-44EA-9258-465DFB3BA45B}"
@@ -61,14 +59,6 @@ Global
 		{E83629C2-AB49-40E8-A420-A0F9AEDAA14F}.Release|Any CPU.ActiveCfg = Release
 		{E83629C2-AB49-40E8-A420-A0F9AEDAA14F}.Release|x64.ActiveCfg = Release
 		{E83629C2-AB49-40E8-A420-A0F9AEDAA14F}.Release|x64.Build.0 = Release
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Debug|x64.Build.0 = Debug|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Release|x64.ActiveCfg = Release|Any CPU
-		{873A0CE1-1619-41F7-A42B-1D7CE485957D}.Release|x64.Build.0 = Release|Any CPU
 		{B7D6F626-516A-44EA-9258-465DFB3BA45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7D6F626-516A-44EA-9258-465DFB3BA45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D6F626-516A-44EA-9258-465DFB3BA45B}.Debug|x64.ActiveCfg = Debug|Any CPU

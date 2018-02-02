@@ -571,6 +571,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Views\Resources\Images\Inferno.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Resources\Images\cache.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

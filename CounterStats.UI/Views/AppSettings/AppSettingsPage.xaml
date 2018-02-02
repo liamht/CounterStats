@@ -14,8 +14,18 @@
              Background="#171625"
              d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeAppSettingsViewModel , IsDesignTimeCreatable=True}"
              Height="400" Width="750">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="15">
+  <Grid>
+      <Rectangle Grid.RowSpan="5">
+          <Rectangle.Fill>
+              <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                  <GradientStop Color="#FF2F2D40" Offset="0.0" />
+                  <GradientStop Color="#222131" Offset="0.2" />
+              </LinearGradientBrush>
+          </Rectangle.Fill>
+      </Rectangle>
+        <Image Grid.Row="0" Source="/CounterStats;component/Views/Resources/Images/Inferno.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+      <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="15">
             <Label>Authenticate with Steam   </Label>
             <Button Command="{Binding LoginCommand}" Width="100">Login</Button>
         </StackPanel>
@@ -23,6 +33,7 @@
             <Label>Change Counter Strike Folder Location</Label>
             <Button Command="{Binding OpenFolderDialog}" Width="100">Change</Button>
         </StackPanel>
-    </StackPanel>
+        </StackPanel>
+    </Grid>
 </UserControl>
 
