@@ -534,6 +534,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="gamestate_integration_counterstrats.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -572,6 +575,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Views\Resources\Images\steam-login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Resources\Images\Inferno.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

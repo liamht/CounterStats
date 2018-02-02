@@ -46,5 +46,29 @@ namespace CounterStats.UI.Properties {
                 this["SteamId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SteamName {
+            get {
+                return ((string)(this["SteamName"]));
+            }
+            set {
+                this["SteamName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CsgoPath {
+            get {
+                return ((string)(this["CsgoPath"]));
+            }
+            set {
+                this["CsgoPath"] = value;
+            }
+        }
     }
 }

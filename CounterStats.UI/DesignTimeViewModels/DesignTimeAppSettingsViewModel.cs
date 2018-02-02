@@ -15,6 +15,10 @@ namespace CounterStats.UI.DesignTimeViewModels
         public ICommand LoginCommand => new ActionCommand(() => { });
         public string ErrorMessage => "Hello World";
         public bool IsErrorMessageShown { get; set; } = true;
+        public bool DisplaySteamLoginLink { get; }
+        public bool DisplayChangeCsgoPathButton { get; }
+        public string UserName { get; set; }
+        public string CsgoPath { get; set; }
 
 
         public DesignTimeAppSettingsViewModel()

@@ -15,5 +15,8 @@ namespace CounterStats.ApiCaller.Entities
 
         [JsonProperty("avatarfull")]
         public string AvatarFull { get; set; }
+
+        [JsonProperty("personaname")]
+        public string UserName { get; set; }
     }
 }

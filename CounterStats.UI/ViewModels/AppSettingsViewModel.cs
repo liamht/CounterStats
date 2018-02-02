@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Input;
+using CounterStats.ApiCaller;
 using CounterStats.UI.Commands;
 using CounterStats.UI.Views;
 using CounterStats.UI.Views.Elements;
@@ -9,10 +10,12 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace CounterStats.UI.ViewModels
 {
-    public class AppSettingsViewModel: BaseViewModel
+    public class AppSettingsViewModel : BaseViewModel
     {
         public ICommand OpenFolderDialog => new ActionCommand(OpenDialog);
+
         public ICommand LoginCommand => new ActionCommand(async () => Login());
+
         public ICommand ErrorMessageReceived => new ActionCommand(CloseErrorMessage);
 
         #region public bool IsErrorMessageShown
@@ -28,14 +31,59 @@ namespace CounterStats.UI.ViewModels
         }
         #endregion
 
-        public string UserId { get; set; }
-        public string ErrorMessage { get; } = @"The folder you specified does not contain your csgo.exe file. Please select the correct folder.";
+        #region public bool DisplaySteamLoginLink
+        private bool _displaySteamLoginLink;
+        public bool DisplaySteamLoginLink
+        {
+            get { return _displaySteamLoginLink; }
+            set
+            {
+                _displaySteamLoginLink = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("DisplaySteamLoginLink"));
+            }
+        }
+        #endregion
+
+        #region public bool DisplayChangeCsgoPathButton
+        private bool _displayChangeCsgoPathButton;
+        public bool DisplayChangeCsgoPathButton
+        {
+            get { return _displayChangeCsgoPathButton; }
+            set
+            {
+                _displayChangeCsgoPathButton = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("DisplayChangeCsgoPathButton"));
+            }
+        }
+        #endregion
+
+        public string UserName { get; set; }
+
+        public string CsgoPath { get; set; }
+
+        public string ErrorMessage { get; } = @"The folder you specified does not contain your csgo.exe file. Please select the correct folder, This folder is typically located at:
+C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
 
         private ISteamBrowserAuthenticator _authenticator;
 
-        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator)
+        private ISteamApiCaller _apiHelper;
+
+        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator, ISteamApiCaller apiHelper)
         {
             _authenticator = authenticator;
+            _apiHelper = apiHelper;
+            UserName = Properties.Settings.Default.SteamName;
+            CsgoPath = Properties.Settings.Default.CsgoPath;
+
+            if (string.IsNullOrWhiteSpace(UserName))
+            {
+                DisplaySteamLoginLink = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(CsgoPath))
+            {
+                DisplayChangeCsgoPathButton = true;
+            }
         }
 
         public void OpenDialog()
@@ -49,6 +97,9 @@ namespace CounterStats.UI.ViewModels
                 if (CheckFolderIsValidCounterStrikeFolder(dialog.FileName))
                 {
                     AddConfigFileToSelectedPath(dialog.FileName);
+                    Properties.Settings.Default.CsgoPath = dialog.FileName;
+                    CsgoPath = dialog.FileName;
+                    DisplayChangeCsgoPathButton = false;
                 }
                 else
                 {
@@ -59,11 +110,13 @@ namespace CounterStats.UI.ViewModels
 
         public async void Login()
         {
-           var userId = await _authenticator.GetUsersSteamId();
+            var userId = await _authenticator.GetUsersSteamId();
 
-           Properties.Settings.Default.SteamId = userId;
+            Properties.Settings.Default.SteamId = userId;
+            Properties.Settings.Default.SteamName = UserName;
+            UserName = _apiHelper.GetPlayerSummaries(userId).UserName;
+            DisplaySteamLoginLink = false;
         }
-
 
         private void AddConfigFileToSelectedPath(string selectedPath)
         {
