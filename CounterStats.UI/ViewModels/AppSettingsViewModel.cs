@@ -57,9 +57,33 @@ namespace CounterStats.UI.ViewModels
         }
         #endregion
 
-        public string UserName { get; set; }
+        #region public string UserName
 
-        public string CsgoPath { get; set; }
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("UserName"));
+            }
+        }
+        #endregion
+
+        #region public string UserName
+
+        private string _csgoPath;
+        public string CsgoPath
+        {
+            get { return _csgoPath; }
+            set
+            {
+                _csgoPath = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("CsgoPath"));
+            }
+        }
+        #endregion
 
         public string ErrorMessage { get; } = @"The folder you specified does not contain your csgo.exe file. Please select the correct folder, This folder is typically located at:
 C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
@@ -98,6 +122,8 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
                 {
                     AddConfigFileToSelectedPath(dialog.FileName);
                     Properties.Settings.Default.CsgoPath = dialog.FileName;
+                    Properties.Settings.Default.Save();
+
                     CsgoPath = dialog.FileName;
                     DisplayChangeCsgoPathButton = false;
                 }
@@ -114,6 +140,7 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
 
             Properties.Settings.Default.SteamId = userId;
             Properties.Settings.Default.SteamName = UserName;
+            Properties.Settings.Default.Save();
             UserName = _apiHelper.GetPlayerSummaries(userId).UserName;
             DisplaySteamLoginLink = false;
         }
