@@ -72,6 +72,11 @@ namespace CounterStats.UI.Views
                     var mainWindow = (Current.MainWindow as MainWindow);
                     if (mainWindow != null)
                     {
+                        if (string.IsNullOrWhiteSpace(CounterStats.UI.Properties.Settings.Default.CsgoPath))
+                        {
+                            mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
+                            return;
+                        }
                         mainWindow.CurrentPage.Content = _container.Get<CurrentGamePage>();
                     }
                 }},
@@ -80,10 +85,14 @@ namespace CounterStats.UI.Views
                     var mainWindow = (Current.MainWindow as MainWindow);
                     if (mainWindow != null)
                     {
+                        if (string.IsNullOrWhiteSpace(CounterStats.UI.Properties.Settings.Default.SteamId))
+                        {
+                            mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
+                            return;
+                        }
                         mainWindow.CurrentPage.Content = _container.Get<LifetimeStatsPage>();
                     }
-                }},
-                new MenuItem() {Text = "More Features Coming Soon", OnClick = () => { }}
+                }}
             };
         }
 
