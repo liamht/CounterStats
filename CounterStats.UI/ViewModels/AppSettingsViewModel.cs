@@ -71,12 +71,12 @@ namespace CounterStats.UI.ViewModels
         }
         #endregion
 
-        #region public string UserName
+        #region public string CsgoPath
 
         private string _csgoPath;
         public string CsgoPath
         {
-            get { return _csgoPath; }
+            get { return _csgoPath.Substring(0, 25)+"..."; }
             set
             {
                 _csgoPath = value;
@@ -137,6 +137,7 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
         public async void Login()
         {
             var userId = await _authenticator.GetUsersSteamId();
+            if (string.IsNullOrWhiteSpace(userId)) return;
 
             Properties.Settings.Default.SteamId = userId;
             Properties.Settings.Default.SteamName = UserName;

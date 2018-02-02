@@ -16,7 +16,13 @@
              Background="#171625"
              d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeAppSettingsViewModel , IsDesignTimeCreatable=True}"
              Height="400" Width="750">
-
+<UserControl.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    </UserControl.Resources>
     <materialDesign:DialogHost HorizontalAlignment="Center" VerticalAlignment="Center" CloseOnClickAway="True" DialogClosing="DialogHost_OnDialogClosing"
                                IsOpen="{Binding IsErrorMessageShown}">
         <materialDesign:DialogHost.DialogContent>
@@ -55,61 +61,69 @@
                 </TextBlock>
 
                 <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplaySteamLoginLink}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
                     <Label>Authenticate with Steam</Label>
                     <Button Command="{Binding LoginCommand}">
-                        <Image Source="../Resources/Images/steam-login.png"></Image>
                         <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DisplaySteamLoginLink}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
+                            <Style></Style>
                         </Button.Style>
+                        <Image Source="../Resources/Images/steam-login.png"></Image>
                     </Button>
-                    <TextBlock Text="{Binding UserName}">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DisplaySteamLoginLink}" Value="True">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="15">
-                    <Label>Change Counter Strike Folder Location</Label>
-                    
-                    <Button Command="{Binding OpenFolderDialog}" Width="100" Content="Set Location">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DisplayChangeCsgoPathButton}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <TextBlock Text="{Binding CsgoPath}">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DisplayChangeCsgoPathButton}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplaySteamLoginLink}" Value="False">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock>Authenticate with Steam</TextBlock>
+                    <TextBlock Margin="15 0 0 0" Text="{Binding UserName}"></TextBlock>
+                    <Button Margin="15 0 0 0" Command="{Binding LogOut}" Style="{DynamicResource MaterialDesignFlatButton}" Content="Log Out"></Button>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplayChangeCsgoPathButton}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <Label>Change Counter Strike Folder Location</Label>
+                    <Button Margin="15 0 0 0" Command="{Binding OpenFolderDialog}" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Set Folder"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplayChangeCsgoPathButton}" Value="False">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock>Change Counter Strike Folder Location</TextBlock>
+                    <TextBlock Margin="15 0 0 0" Text="{Binding CsgoPath}"></TextBlock>
+                    <Button Margin="15 0 0 0" Command="{Binding OpenFolderDialog}" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Change Folder"></Button>
+                </StackPanel>
+
             </StackPanel>
 
         </Grid>
