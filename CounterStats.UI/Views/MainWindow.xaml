@@ -43,12 +43,28 @@
 
         <!--title bar-->
         <!--Window Icon and Title-->
-        <StackPanel Background="#FF3E3E53" Orientation="Horizontal" Margin="0" VerticalAlignment="Top" Height="25px">
+        <Grid Background="#FF3E3E53" Margin="0" VerticalAlignment="Top" Height="25px">
+            <Grid MouseLeftButtonUp="ButtonSettings_OnClick" shell:WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Left" Width="50px">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                <Setter Property="Background" Value="#222131"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+
+
+                <materialDesign:PackIcon Kind="Settings" Foreground="{StaticResource MaterialDesignBodyLight}" HorizontalAlignment="Center"
+                                         Height="20" Width="20" Margin="0,0,5,1" VerticalAlignment="Center"></materialDesign:PackIcon>
+            </Grid>
 
             <TextBlock Text="CounterStats"
                            FontFamily="Roboto" FontSize="12" Padding="3px" Margin="10 0"
-                           Foreground="{StaticResource MaterialDesignBodyLight}" VerticalAlignment="Center"/>
-        </StackPanel>
+                           Foreground="{StaticResource MaterialDesignBodyLight}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
 
         <Grid MouseLeftButtonUp="ButtonBase_OnClick" shell:WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Right" Width="50px">
             <Grid.Style>
@@ -76,16 +92,8 @@
                         <DockPanel MinWidth="212" MinHeight="490" VerticalAlignment="Stretch" Background="#282834">
                             <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" DockPanel.Dock="Top" 
                                           HorizontalAlignment="Right" Margin="16" IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                            <ListBox x:Name="MainMenu" DockPanel.Dock="Top" Margin="0 16 0 16" SelectedIndex="0" Height="315"                         
+                            <ListBox x:Name="MainMenu" DockPanel.Dock="Top" Margin="0 16 0 16"                        
                                      ItemsSource="{Binding Menu}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate DataType="elements:MenuItem">
-                                        <TextBlock Text="{Binding Text}" Margin="32 0 32 0" />
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <ListBox x:Name="BottomMenu" DockPanel.Dock="Bottom" Margin="0 16 0 16" SelectedIndex="0"                         
-                                     ItemsSource="{Binding BottomMenu}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate DataType="elements:MenuItem">
                                         <TextBlock Text="{Binding Text}" Margin="32 0 32 0" />

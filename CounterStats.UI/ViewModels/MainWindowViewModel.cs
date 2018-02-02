@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using CounterStats.UI.Views.Elements;
@@ -23,15 +24,16 @@ namespace CounterStats.UI.ViewModels
         }
         #endregion
 
+        public IOpenSettingsAction OpenSettings { get; set; }
+
         public bool PlayQuakeSounds { get; set; }
 
         public List<MenuItem> Menu { get; set; }
-        public List<MenuItem> BottomMenu { get; set; }
 
-        public MainWindowViewModel(IMainMenu mainMenu, IBottomMenu bottomMenu)
+        public MainWindowViewModel(IMainMenu mainMenu, IOpenSettingsAction openSettingsAction)
         {
             Menu = mainMenu.ToList();
-            BottomMenu = bottomMenu.ToList();
+            OpenSettings = openSettingsAction;
 
             PlayQuakeSounds = Properties.Settings.Default.PlayQuakeSounds;
         }

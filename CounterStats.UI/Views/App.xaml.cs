@@ -45,11 +45,12 @@ namespace CounterStats.UI.Views
         {
             _container = new StandardKernel();
             _container.Bind<ICurrentGameUpdater>().To<CurrentGameUpdater>();
+            _container.Bind<IOpenSettingsAction>().ToConstant(GetOpenSettingsAction());
 
-            _container.Bind<CurrentGameViewModel>().To<CurrentGameViewModel>();
             _container.Bind<MainWindowViewModel>().To<MainWindowViewModel>();
             _container.Bind<LifetimeStatsViewModel>().To<LifetimeStatsViewModel>();
             _container.Bind<AppSettingsViewModel>().To<AppSettingsViewModel>();
+            _container.Bind<CurrentGameViewModel>().To<CurrentGameViewModel>();
 
             _container.Bind<IHttpWebClient>().To<HttpWebClient>();
             _container.Bind<ISteamBrowserAuthenticator>().To<SteamBrowserAuthenticator>();
@@ -60,7 +61,18 @@ namespace CounterStats.UI.Views
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
             
             _container.Bind<IMainMenu>().ToConstant(GetMainMenu());
-            _container.Bind<IBottomMenu>().ToConstant(GetBottomMenu());
+        }
+
+        private IOpenSettingsAction GetOpenSettingsAction()
+        {
+            return new OpenSettingsAction(() =>
+            {
+                var mainWindow = (Current.MainWindow as MainWindow);
+                if (mainWindow != null)
+                {
+                    mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
+                }
+            });
         }
 
         protected internal IMainMenu GetMainMenu()
@@ -91,21 +103,6 @@ namespace CounterStats.UI.Views
                             return;
                         }
                         mainWindow.CurrentPage.Content = _container.Get<LifetimeStatsPage>();
-                    }
-                }}
-            };
-        }
-
-        protected internal IBottomMenu GetBottomMenu()
-        {
-            return new MainMenu()
-            {
-                new MenuItem() {Text = "Application Settings", OnClick = () =>
-                {
-                    var mainWindow = (Current.MainWindow as MainWindow);
-                    if (mainWindow != null)
-                    {
-                        mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
                     }
                 }}
             };
