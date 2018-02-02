@@ -6,7 +6,7 @@ using MenuItem = CounterStats.UI.Views.Elements.MenuItem;
 
 namespace CounterStats.UI.ViewModels
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
         #region public int AverageDamagePerRound
         private MenuItem _selectedMenuItem;
@@ -22,7 +22,7 @@ namespace CounterStats.UI.ViewModels
             }
         }
         #endregion
-        
+
         public bool PlayQuakeSounds { get; set; }
 
         public List<MenuItem> Menu { get; set; }
@@ -32,16 +32,8 @@ namespace CounterStats.UI.ViewModels
         {
             Menu = mainMenu.ToList();
             BottomMenu = bottomMenu.ToList();
-            
+
             PlayQuakeSounds = Properties.Settings.Default.PlayQuakeSounds;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
         }
     }
 }

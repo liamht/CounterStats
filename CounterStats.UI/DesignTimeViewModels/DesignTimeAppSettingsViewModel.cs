@@ -13,6 +13,9 @@ namespace CounterStats.UI.DesignTimeViewModels
     {
         public ICommand OpenFolderDialog { get; set; }
         public ICommand LoginCommand => new ActionCommand(() => { });
+        public string ErrorMessage => "Hello World";
+        public bool IsErrorMessageShown { get; set; } = true;
+
 
         public DesignTimeAppSettingsViewModel()
         {

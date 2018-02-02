@@ -439,6 +439,7 @@
     <Compile Include="DesignTimeViewModels\DesignTimeLifetimeStatsViewModel.cs" />
     <Compile Include="SteamApiKey.cs" />
     <Compile Include="ViewModels\AppSettingsViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CurrentGameViewModel.cs" />
     <Compile Include="ViewModels\LifetimeStatsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

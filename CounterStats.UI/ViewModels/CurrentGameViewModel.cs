@@ -7,7 +7,7 @@ using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels
 {
-    public class CurrentGameViewModel : INotifyPropertyChanged, IDisposable
+    public class CurrentGameViewModel : BaseViewModel, IDisposable
     {
         #region Properties
         #region public string CurrentPlayerAvatarUrl
@@ -376,14 +376,6 @@ namespace CounterStats.UI.ViewModels
             CounterTerroristScore = state.CounterTerroristScore;
             CurrentMap = state.CurrentMap;
             CurrentPlayerAvatarUrl = state.AvatarUrl;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
         }
 
         public void Dispose()
