@@ -30,9 +30,9 @@
                 <TextBlock Foreground="#F03434" Margin="0 10" FontSize="25" >Oops...</TextBlock>
                 <TextBlock TextWrapping="Wrap" Text="{Binding ErrorMessage}"></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button Style="{DynamicResource MaterialDesignFlatButton}"
                             Background="#26A65B"
-                            Foreground="{StaticResource MaterialDesignDarkForeground}"
+                            Foreground="{DynamicResource MaterialDesignDarkForeground}"
                             IsDefault="True"
                             Margin="0 15 15 0"
                             Command="materialDesign:DialogHost.CloseDialogCommand">

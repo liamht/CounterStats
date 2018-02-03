@@ -1089,12 +1089,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3024708B9EDC461B8BE7A6E3A5E97F63"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_314668DAF3CE54E5E8057401504C39E2"
         "OwnerKey" = "8:_41436A1EDEE74A23820F1E52F16E9466"
         "MsmSig" = "8:_UNDEFINED"
@@ -3385,34 +3379,6 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_C3BBE45B558C44698CE53B6A1E6E9704"
-            {
-            "Name" = "8:Primary output from CounterStrats.Installer.CfgFileAdder (Active)"
-            "Condition" = "8:"
-            "Object" = "8:"
-            "FileType" = "3:2"
-            "InstallAction" = "3:2"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_25EC1EC5_13D9_4708_AE65_0B559FAFA2F5"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_E5CB0CE5DF1948CEA633FEB94ABCCD8F"
-            {
-            "Name" = "8:Primary output from CounterStrats.Installer.CfgFileAdder (Active)"
-            "Condition" = "8:"
-            "Object" = "8:"
-            "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_6E889AF6_81BC_4DA2_B42C_3E03208C67A8"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -3961,26 +3927,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3024708B9EDC461B8BE7A6E3A5E97F63"
-            {
-            "SourcePath" = "8:..\\CounterStrats.Installer.CfgFileAdder\\gamestate_integration_counterstrats.cfg"
-            "TargetName" = "8:gamestate_integration_counterstrats.cfg"
-            "Tag" = "8:"
-            "Folder" = "8:_BBF35D0187364284B60B9F0E245ADF3F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_314668DAF3CE54E5E8057401504C39E2"

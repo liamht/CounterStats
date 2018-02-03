@@ -13,9 +13,9 @@ namespace CounterStrats.UI.Test.ViewModels
         public void SetUp()
         {
             var mainMenu = new MainMenu();
-            var bottomMenu = new MainMenu();
+            var action = new OpenSettingsAction(() => { });
 
-            _subject = new MainWindowViewModel(mainMenu, bottomMenu);
+            _subject = new MainWindowViewModel(mainMenu, action);
         }
 
         [Test]
