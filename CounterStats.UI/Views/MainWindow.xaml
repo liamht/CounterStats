@@ -43,12 +43,13 @@
             <!--title bar-->
             <!--Window Icon and Title-->
             <Grid Background="#FF3E3E53" Margin="0" VerticalAlignment="Top" Height="25px">
-                <Grid MouseLeftButtonUp="ButtonSettings_OnClick" shell:WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Left" Width="50px">
+                <Grid MouseLeftButtonUp="ButtonSettings_OnClick" shell:WindowChrome.IsHitTestVisibleInChrome="True" 
+                      HorizontalAlignment="Left" Width="50px">
                     <Grid.Style>
                         <Style TargetType="Grid">
                             <Setter Property="Background" Value="Transparent"/>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseDirectlyOver" Value="True">
+                            <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#222131"/>
                                 </Trigger>
                             </Style.Triggers>
@@ -70,7 +71,7 @@
                     <Style TargetType="Grid">
                         <Setter Property="Background" Value="Transparent"/>
                         <Style.Triggers>
-                            <Trigger Property="IsMouseDirectlyOver" Value="True">
+                        <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="Red"/>
                             </Trigger>
                         </Style.Triggers>
