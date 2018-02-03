@@ -89,6 +89,8 @@ namespace CounterStats.UI.Views
                     {
                         if (string.IsNullOrWhiteSpace(CounterStats.UI.Properties.Settings.Default.CsgoPath))
                         {
+                            var vm = MainWindow.DataContext as MainWindowViewModel;
+                            vm?.ResetMenu();
                             mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
                             return;
                         }
@@ -102,6 +104,8 @@ namespace CounterStats.UI.Views
                     {
                         if (string.IsNullOrWhiteSpace(CounterStats.UI.Properties.Settings.Default.SteamId))
                         {
+                            var vm = MainWindow.DataContext as MainWindowViewModel;
+                            vm?.ResetMenu();
                             mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
                             return;
                         }
