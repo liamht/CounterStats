@@ -76,7 +76,14 @@ namespace CounterStats.UI.ViewModels
         private string _csgoPath;
         public string CsgoPath
         {
-            get { return _csgoPath.Substring(0, 25)+"..."; }
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_csgoPath) || _csgoPath.Length < 25)
+                {
+                    return _csgoPath;
+                }
+                return _csgoPath?.Substring(0, 25) + "...";
+            }
             set
             {
                 _csgoPath = value;
