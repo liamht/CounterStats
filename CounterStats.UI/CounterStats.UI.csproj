@@ -498,30 +498,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\**\*" Exclude="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\x64\**\*;$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\locales\**\*.pak">
-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-      <Visible>false</Visible>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\**\en-GB.*;$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\**\en-US.*">
-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-      <Visible>false</Visible>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\x86\**\*">
-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-      <Visible>false</Visible>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(SolutionDir)packages\CefSharp.Common.57.0.0\CefSharp\x86\**\CefSharp.BrowserSubprocess.*">
-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-      <Visible>false</Visible>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <PublishFile Include="CefSharp.Core.pdb">
       <Visible>False</Visible>
       <Group>
@@ -583,4 +559,28 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Content Include="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\**\*" Exclude="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\x86\**\*;$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\locales\**\*.pak">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\**\en-GB.*;$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\**\en-US.*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(SolutionDir)packages\cef.redist.x86.3.2987.1601\CEF\x86\**\*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(SolutionDir)packages\CefSharp.Common.57.0.0\CefSharp\x86\**\CefSharp.BrowserSubprocess.*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
 </Project>
