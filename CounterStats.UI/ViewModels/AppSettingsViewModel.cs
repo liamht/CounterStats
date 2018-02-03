@@ -139,10 +139,10 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
             var userId = await _authenticator.GetUsersSteamId();
             if (string.IsNullOrWhiteSpace(userId)) return;
 
+            UserName = _apiHelper.GetPlayerSummaries(userId).UserName;
             Properties.Settings.Default.SteamId = userId;
             Properties.Settings.Default.SteamName = UserName;
             Properties.Settings.Default.Save();
-            UserName = _apiHelper.GetPlayerSummaries(userId).UserName;
             DisplaySteamLoginLink = false;
         }
 

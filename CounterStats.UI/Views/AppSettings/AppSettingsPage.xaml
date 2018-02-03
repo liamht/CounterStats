@@ -90,8 +90,8 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Style>
-                    <TextBlock>Authenticate with Steam</TextBlock>
-                    <TextBlock Margin="15 0 0 0" Text="{Binding UserName}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Authenticate with Steam</TextBlock>
+                    <TextBlock Margin="15 0 0 0" VerticalAlignment="Center" Text="{Binding UserName}"></TextBlock>
                     <Button Margin="15 0 0 0" Command="{Binding LogOut}" Style="{DynamicResource MaterialDesignFlatButton}" Content="Log Out"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="15">
@@ -105,7 +105,7 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Style>
-                    <Label>Change Counter Strike Folder Location</Label>
+                    <Label VerticalAlignment="Center">Change Counter Strike Folder Location</Label>
                     <Button Margin="15 0 0 0" Command="{Binding OpenFolderDialog}" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Set Folder"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="15">
@@ -119,8 +119,8 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Style>
-                    <TextBlock>Change Counter Strike Folder Location</TextBlock>
-                    <TextBlock Margin="15 0 0 0" Text="{Binding CsgoPath}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Change Counter Strike Folder Location</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="15 0 0 0" Text="{Binding CsgoPath}"></TextBlock>
                     <Button Margin="15 0 0 0" Command="{Binding OpenFolderDialog}" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Change Folder"></Button>
                 </StackPanel>
 
