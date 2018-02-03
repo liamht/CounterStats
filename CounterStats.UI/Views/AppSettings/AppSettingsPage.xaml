@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="CounterStats.UI.Views.AppSettings.AppSettingsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:designViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             Background="#171625"
+             d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeAppSettingsViewModel , IsDesignTimeCreatable=True}"
+             Height="400" Width="750">
+<UserControl.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    </UserControl.Resources>
+    <materialDesign:DialogHost HorizontalAlignment="Center" VerticalAlignment="Center" CloseOnClickAway="True" DialogClosing="DialogHost_OnDialogClosing"
+                               IsOpen="{Binding IsErrorMessageShown}">
+        <materialDesign:DialogHost.DialogContent>
+            <StackPanel Margin="16" MaxWidth="325px">
+                <TextBlock Foreground="#F03434" Margin="0 10" FontSize="25" >Oops...</TextBlock>
+                <TextBlock TextWrapping="Wrap" Text="{Binding ErrorMessage}"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                    <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                            Background="#26A65B"
+                            Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                            IsDefault="True"
+                            Margin="0 15 15 0"
+                            Command="materialDesign:DialogHost.CloseDialogCommand">
+                        <Button.CommandParameter>
+                            <system:Boolean>True</system:Boolean>
+                        </Button.CommandParameter>
+                        OK
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <Rectangle Grid.RowSpan="5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF2F2D40" Offset="0.0" />
+                        <GradientStop Color="#222131" Offset="0.2" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image Grid.Row="0" Source="/CounterStats;component/Views/Resources/Images/Inferno.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" Margin="15">
+                    Please be aware that if you do not authenticate with steam then the lifetime stats page will be inaccessible. 
+                    Likewise if you do not specify your CS:GO folder then the application will be unable to integrate with active matches.
+                </TextBlock>
+
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplaySteamLoginLink}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <Label>Authenticate with Steam</Label>
+                    <Button Command="{Binding LoginCommand}">
+                        <Button.Style>
+                            <Style></Style>
+                        </Button.Style>
+                        <Image Source="../Resources/Images/steam-login.png"></Image>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplaySteamLoginLink}" Value="False">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock VerticalAlignment="Center">Authenticate with Steam</TextBlock>
+                    <TextBlock Margin="15 0 0 0" VerticalAlignment="Center" Text="{Binding UserName}"></TextBlock>
+                    <Button Margin="15 0 0 0" Command="{Binding LogOut}" Style="{DynamicResource MaterialDesignFlatButton}" Content="Log Out"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplayChangeCsgoPathButton}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <Label VerticalAlignment="Center">Change Counter Strike Folder Location</Label>
+                    <Button Margin="15 0 0 0" Command="{Binding OpenFolderDialog}" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Set Folder"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding DisplayChangeCsgoPathButton}" Value="False">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock VerticalAlignment="Center">Change Counter Strike Folder Location</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="15 0 0 0" Text="{Binding CsgoPath}"></TextBlock>
+                    <Button Margin="15 0 0 0" Command="{Binding OpenFolderDialog}" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Content="Change Folder"></Button>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+    </materialDesign:DialogHost>
+</UserControl>
+

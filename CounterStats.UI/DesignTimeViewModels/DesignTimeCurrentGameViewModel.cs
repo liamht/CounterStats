@@ -46,6 +46,8 @@ namespace CounterStats.UI.DesignTimeViewModels
 
         public double KillDeathRatio => Math.Round(Kills / (double) Deaths, 2);
 
+        public bool IsGameInProgress { get; set;  }
+
         public DesignTimeCurrentGameViewModel()
         {
             CurrentPlayerAvatarUrl =

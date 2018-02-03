@@ -1,4 +1,5 @@
 ﻿using System;
+using CounterStats.Business.Entities;
 using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels
@@ -40,8 +41,16 @@ namespace CounterStats.UI.ViewModels
         public LifetimeStatsViewModel(ILifetimeStatisticsFetcher fetcher)
         {
             _fetcher = fetcher;
-
-            var stats = _fetcher.GetCsgoStats("76561198442886149");
+            CsGoStats stats;
+            try
+            {
+                stats = _fetcher.GetCsgoStats(Properties.Settings.Default.SteamId);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
             Kills = stats.Kills;
             Deaths = stats.Deaths;

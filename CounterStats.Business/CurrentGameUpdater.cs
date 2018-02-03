@@ -13,6 +13,7 @@ namespace CounterStats.Business
         public event CsgoDeathHandler OnDeath;
         public event CsgoKillHandler OnKill;
         public event EventHandler OnCouldNotStartListening;
+        public event EventHandler OnNoGameInProgress;
 
         private readonly ISteamApiCaller _csgoApiHelper;
         private bool _isListenerRunning;
@@ -32,10 +33,7 @@ namespace CounterStats.Business
         public CurrentGameUpdater(GameStateListener apiListener, ISteamApiCaller csgoApiHelper)
         {
             _csgoApiListener = apiListener;
-
-            //todo inject
             _csgoApiHelper = csgoApiHelper;
-            //end todo
         }
 
         public void Start()
@@ -52,6 +50,12 @@ namespace CounterStats.Business
 
         private void OnNewGameState(GameState gs)
         {
+            if (gs.Player.Team == PlayerTeam.Undefined)
+            {
+                OnNoGameInProgress?.Invoke(this, EventArgs.Empty);
+                return;
+            }
+
             if (gs.Player.SteamID != _currentUserId)
             {
                 _hasUserChanged = true;
