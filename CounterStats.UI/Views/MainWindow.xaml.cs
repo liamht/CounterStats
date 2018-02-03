@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Configuration;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using CounterStats.UI.ViewModels;
 
 namespace CounterStats.UI.Views
@@ -13,8 +9,10 @@ namespace CounterStats.UI.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowViewModel _vm;
         public MainWindow(MainWindowViewModel vm)
         {
+            _vm = vm;
             DataContext = vm;
             InitializeComponent();
         }
@@ -24,6 +22,11 @@ namespace CounterStats.UI.Views
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void ButtonSettings_OnClick(object sender, RoutedEventArgs e)
+        {
+            _vm.OpenSettings.Invoke();
         }
 
         private void ToggleSoundButton_Unchecked(object sender, RoutedEventArgs e)

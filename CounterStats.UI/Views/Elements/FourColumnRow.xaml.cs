@@ -11,28 +11,28 @@ namespace CounterStats.UI.Views.Elements
     {
         #region Column Declarations
         public static readonly DependencyProperty ColumnOneProperty
-              = DependencyProperty.Register("ColumnOne", typeof(Control), typeof(FourColumnRow),
+              = DependencyProperty.Register("ColumnOne", typeof(UIElement), typeof(FourColumnRow),
                         new FrameworkPropertyMetadata(SetColumnContent));
         
         public static readonly DependencyProperty ColumnTwoProperty
-            = DependencyProperty.Register("ColumnTwo", typeof(Control), typeof(FourColumnRow),
+            = DependencyProperty.Register("ColumnTwo", typeof(UIElement), typeof(FourColumnRow),
                 new FrameworkPropertyMetadata(SetColumnContent));
         
         public static readonly DependencyProperty ColumnThreeProperty
-            = DependencyProperty.Register("ColumnThree", typeof(Control), typeof(FourColumnRow),
+            = DependencyProperty.Register("ColumnThree", typeof(UIElement), typeof(FourColumnRow),
                 new FrameworkPropertyMetadata(SetColumnContent));
         
         public static readonly DependencyProperty ColumnFourProperty
-            = DependencyProperty.Register("ColumnFour", typeof(Control), typeof(FourColumnRow),
+            = DependencyProperty.Register("ColumnFour", typeof(UIElement), typeof(FourColumnRow),
                 new FrameworkPropertyMetadata(SetColumnContent));
         #endregion
 
         #region Column Properties
-        public Control ColumnOne
+        public UIElement ColumnOne
         {
             get
             {
-                return (Control)GetValue(ColumnOneProperty);
+                return (UIElement)GetValue(ColumnOneProperty);
             }
             set
             {
@@ -40,11 +40,11 @@ namespace CounterStats.UI.Views.Elements
             }
         }
 
-        public Control ColumnTwo
+        public UIElement ColumnTwo
         {
             get
             {
-                return (Control)GetValue(ColumnTwoProperty);
+                return (UIElement)GetValue(ColumnTwoProperty);
             }
             set
             {
@@ -52,11 +52,11 @@ namespace CounterStats.UI.Views.Elements
             }
         }
         
-        public Control ColumnThree
+        public UIElement ColumnThree
         {
             get
             {
-                return (Control)GetValue(ColumnThreeProperty);
+                return (UIElement)GetValue(ColumnThreeProperty);
             }
             set
             {
@@ -64,11 +64,11 @@ namespace CounterStats.UI.Views.Elements
             }
         }
         
-        public Control ColumnFour
+        public UIElement ColumnFour
         {
             get
             {
-                return (Control)GetValue(ColumnFourProperty);
+                return (UIElement)GetValue(ColumnFourProperty);
             }
             set
             {
@@ -80,7 +80,7 @@ namespace CounterStats.UI.Views.Elements
 
         private static void SetColumnContent(DependencyObject source, DependencyPropertyChangedEventArgs e)
         {
-            var value = e.NewValue as Control;
+            var value = e.NewValue as UIElement;
             var page = source as FourColumnRow;
 
             if (page == null)

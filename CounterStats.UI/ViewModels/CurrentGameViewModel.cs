@@ -2,12 +2,12 @@
 using System.ComponentModel;
 using System.Media;
 using System.Windows;
-using CounterStats.Business;
+using CounterStats.Business.Events;
 using CounterStats.Business.Interfaces;
 
 namespace CounterStats.UI.ViewModels
 {
-    public class CurrentGameViewModel : INotifyPropertyChanged, IDisposable
+    public class CurrentGameViewModel : BaseViewModel, IDisposable
     {
         #region Properties
         #region public string CurrentPlayerAvatarUrl
@@ -283,6 +283,19 @@ namespace CounterStats.UI.ViewModels
             }
         }
         #endregion
+
+        #region public bool IsGameInProgress
+        private bool _isGameInProgress;
+        public bool IsGameInProgress
+        {
+            get { return _isGameInProgress; }
+            set
+            {
+                _isGameInProgress = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("IsGameInProgress"));
+            }
+        }
+        #endregion
         #endregion
 
         private ICurrentGameUpdater _updater;
@@ -292,6 +305,7 @@ namespace CounterStats.UI.ViewModels
             _updater = updater;
             _updater.OnKill += PlayKillSound;
             _updater.OnStateChange += UpdateViewModelWithNewState;
+            _updater.OnNoGameInProgress += InformUserWeAreWaitingForAGameToStart;
             _updater.OnDeath += PlayDeathSound;
 
             PlayerName = "Waiting to connect to a game";
@@ -302,6 +316,11 @@ namespace CounterStats.UI.ViewModels
             {
                 _updater.Start();
             }
+        }
+
+        private void InformUserWeAreWaitingForAGameToStart(object sender, EventArgs e)
+        {
+            IsGameInProgress = false;
         }
 
         private void PlayDeathSound(DeathEventArgs death)
@@ -360,6 +379,7 @@ namespace CounterStats.UI.ViewModels
 
         private void UpdateViewModelWithNewState(CsgoStateChangeEventArgs state)
         {
+            IsGameInProgress = true;
             PlayerName = state.PlayerName;
             Kills = state.Kills;
             Deaths = state.Deaths;
@@ -376,14 +396,6 @@ namespace CounterStats.UI.ViewModels
             CounterTerroristScore = state.CounterTerroristScore;
             CurrentMap = state.CurrentMap;
             CurrentPlayerAvatarUrl = state.AvatarUrl;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, e);
         }
 
         public void Dispose()

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CounterStats.UI.ViewModels;
+﻿using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views.Elements;
-using Moq;
 using NUnit.Framework;
 
 namespace CounterStrats.UI.Test.ViewModels
@@ -19,8 +13,9 @@ namespace CounterStrats.UI.Test.ViewModels
         public void SetUp()
         {
             var mainMenu = new MainMenu();
+            var action = new OpenSettingsAction(() => { });
 
-            _subject = new MainWindowViewModel(mainMenu);
+            _subject = new MainWindowViewModel(mainMenu, action);
         }
 
         [Test]

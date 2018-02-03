@@ -3,11 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:local="clr-namespace:CounterStats.UI"
       xmlns:designViewModels="clr-namespace:CounterStats.UI.DesignTimeViewModels"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:views="clr-namespace:CounterStats.UI.Views"
-      xmlns:elements="clr-namespace:CounterStats.UI.Views.Elements"
       xmlns:partials="clr-namespace:CounterStats.UI.Views.CurrentGame.Partials"
       mc:Ignorable="d" 
       TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
@@ -16,19 +12,62 @@
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
       Background="#171625"
       d:DataContext="{d:DesignInstance Type= designViewModels:DesignTimeCurrentGameViewModel , IsDesignTimeCreatable=True}"
-             Height="300" Width="600">
+             Height="400" Width="750">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- you only need bring this resource in if you want to specify the circular style statically -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
-    <Border BorderBrush="#23212f" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
+    <Grid>
+        <Rectangle Grid.RowSpan="5">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FF2F2D40" Offset="0.0" />
+                    <GradientStop Color="#222131" Offset="0.2" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image Grid.Row="0" Grid.RowSpan="5" Source="/CounterStats;component/Views/Resources/Images/score-background.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Visibility" Value="Visible"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsGameInProgress}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18">Waiting For Game to Start</Label>
+            <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                         Value="20"
+                         FontSize="50"
+                         Height="35"
+                         Width="35"
+                         Foreground="{StaticResource MaterialDesignDarkForeground}"
+                         IsIndeterminate="True"
+                         x:Name="IndeterminateToDeterminateCircularProgress"/>
+        </StackPanel>
+        
         <Grid>
-            <Rectangle Grid.RowSpan="5">
-                <Rectangle.Fill>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#FF2F2D40" Offset="0.0" />
-                        <GradientStop Color="#222131" Offset="0.2" />
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-            <Image Grid.Row="0" Grid.RowSpan="5" Source="/CounterStats;component/Views/Resources/Images/score-background.jpg" Grid.Column="0" Stretch="Fill" Opacity="0.15"></Image>
+
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsGameInProgress}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
                 <TextBlock  Foreground="#FEFEFE" HorizontalAlignment="Center" Margin="10 5" Text="{Binding GameMode}"></TextBlock>
@@ -43,12 +82,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="120px"></RowDefinition>
                 <RowDefinition Height="75px"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="200px"></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
-    </Border>
+    </Grid>
 </UserControl>
 
 

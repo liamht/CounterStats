@@ -48,25 +48,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CsgoStateChangeEventArgs.cs" />
+    <Compile Include="Entities\AssaultRifleKillStats.cs" />
+    <Compile Include="Entities\CloseQuartersKills.cs" />
+    <Compile Include="Entities\EquipmentKills.cs" />
+    <Compile Include="Entities\LightMachinegunKills.cs" />
+    <Compile Include="Entities\PistolKillStats.cs" />
+    <Compile Include="Entities\ShotgunKills.cs" />
+    <Compile Include="Entities\SubmachineGunKills.cs" />
+    <Compile Include="Events\CsgoStateChangeEventArgs.cs" />
     <Compile Include="CurrentGameUpdater.cs" />
-    <Compile Include="Handlers.cs" />
-    <Compile Include="DeathEventArgs.cs" />
+    <Compile Include="Events\Handlers.cs" />
+    <Compile Include="Events\DeathEventArgs.cs" />
+    <Compile Include="Entities\CsGoStats.cs" />
     <Compile Include="Interfaces\ICurrentGameUpdater.cs" />
-    <Compile Include="KillEventArgs.cs" />
+    <Compile Include="Events\KillEventArgs.cs" />
+    <Compile Include="Interfaces\ILifetimeStatisticsFetcher.cs" />
+    <Compile Include="LifetimeStatisticsFetcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CounterStats.ApiCaller\CounterStats.ApiCaller.csproj">
       <Project>{cbd3c37c-8643-4b98-aa11-e0b087cb3337}</Project>
       <Name>CounterStats.ApiCaller</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CounterStats.Data\CounterStats.Data.csproj">
-      <Project>{acd77343-0df6-43b7-a80c-4cc9c0a4f935}</Project>
-      <Name>CounterStats.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
