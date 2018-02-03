@@ -22,17 +22,22 @@
     <PublishUrl>publish\x86\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>https://raw.githubusercontent.com/liamht/CounterStats/master/CounterStats.UI/publish/x86/</InstallUrl>
-    <ApplicationRevision>1</ApplicationRevision>
+    <SupportUrl>https://github.com/liamht/CounterStats</SupportUrl>
+    <TargetCulture>en-GB</TargetCulture>
+    <ProductName>CounterStats</ProductName>
+    <PublisherName>Liam Hayman Tansley</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>0.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
