@@ -1,55 +1,70 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using CefSharp;
 using CefSharp.Wpf;
 
 namespace CounterStats.UI.Views.Elements
 {
     public class SteamBrowserAuthenticator : ISteamBrowserAuthenticator
     {
+        private Window _window;
+        private ChromiumWebBrowser _browser;
+        private string _returnResult;
+        private SemaphoreSlim _limiter;
+
         public async Task<string> GetUsersSteamId()
         {
-            var window = new Window()
+            _limiter = new SemaphoreSlim(0, 1);
+            SetUpWindow();
+            await _limiter.WaitAsync();
+            return _returnResult;
+        }
+
+        private void SetUpWindow()
+        {
+            _window = new Window()
             {
                 Width = 900,
                 Height = 625,
                 Title = "Log in to Steam"
             };
-            var browser = new ChromiumWebBrowser();
-            var limiter = new SemaphoreSlim(0, 1);
-            var result = String.Empty;
-
-            browser.LoadingStateChanged += (sender, e) =>
+            _browser = new ChromiumWebBrowser();
+            _window.Closing += CleanUpBrowser;
+            _browser.LoadingStateChanged += BrowserOnLoadingStateChanged;
+            _window.Closing += (s, e) =>
             {
-                if (BrowserIsNavigatingToRedirectUrl(e.Browser.MainFrame.Url))
-                {
-                    result = e.Browser.MainFrame.Url.ToString().Split('=').Last();
-                    window.Dispatcher.Invoke(() =>
-                    {
-                        window.Close();
-                    }); 
-                }
+                _limiter.Release();
             };
 
-            window.Closing += (s, e) =>
-            {
-                limiter.Release();
-            };
-
-            window.Content = browser;
-            window.Show();
+            _window.Content = _browser;
+            _window.Show();
             var url = "http://counterstats-app.com/Account/Login";
-            browser.Load(url);
+            _browser.Load(url);
+        }
 
-            await limiter.WaitAsync();
+        private void BrowserOnLoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
+        {
+            if (BrowserIsNavigatingToRedirectUrl(e.Browser.MainFrame.Url))
+            {
+                _returnResult = e.Browser.MainFrame.Url.ToString().Split('=').Last();
+                _window.Dispatcher.Invoke(() =>
+                {
+                    _window.Close();
+                });
+            }
+        }
 
-            return result;
+        private void CleanUpBrowser(object o, CancelEventArgs cancelEventArgs)
+        {
+            _window.Dispatcher.Invoke(() =>
+            {
+                Cef.Shutdown();
+                _browser.Dispose();
+            });
         }
 
         private bool BrowserIsNavigatingToRedirectUrl(string uri)
