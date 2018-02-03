@@ -70,6 +70,9 @@ namespace CounterStats.UI.Views
                 var mainWindow = (Current.MainWindow as MainWindow);
                 if (mainWindow != null)
                 {
+                    var vm = MainWindow.DataContext as MainWindowViewModel;
+                    vm?.ResetMenu();
+
                     mainWindow.CurrentPage.Content = _container.Get<AppSettingsPage>();
                 }
             });

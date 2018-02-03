@@ -18,7 +18,7 @@ namespace CounterStats.UI.ViewModels
             set
             {
                 _selectedMenuItem = value;
-                value.OnClick.Invoke();
+                value?.OnClick?.Invoke();
                 OnPropertyChanged(new PropertyChangedEventArgs("SelectedMenuItem"));
             }
         }
@@ -36,6 +36,18 @@ namespace CounterStats.UI.ViewModels
             OpenSettings = openSettingsAction;
 
             PlayQuakeSounds = Properties.Settings.Default.PlayQuakeSounds;
+        }
+
+        internal void ResetMenu()
+        {
+            SelectedMenuItem = null;
+
+            var tempMenu = Menu;
+            Menu = new List<MenuItem>();
+            foreach (var item in tempMenu)
+            {
+                Menu.Add(item);
+            }
         }
     }
 }
