@@ -57,6 +57,7 @@ namespace CounterStats.UI.Views
 
             _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
             _container.Bind<ISettings>().To<Settings>();
+            _container.Bind<IFolderBrowser>().To<FolderBrowser>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
             
             _container.Bind<IMainMenu>().ToConstant(GetMainMenu());

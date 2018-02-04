@@ -18,6 +18,7 @@ namespace CounterStrats.UI.Test.ViewModels
         private Mock<ISteamBrowserAuthenticator> _authenticator;
         private Mock<ISteamApiCaller> _api;
         private Mock<ISettings> _settings;
+        private Mock<IFolderBrowser> _browser;
 
         [SetUp]
         public void Setup()
@@ -25,8 +26,10 @@ namespace CounterStrats.UI.Test.ViewModels
             _authenticator = new Mock<ISteamBrowserAuthenticator>();
             _api = new Mock<ISteamApiCaller>();
             _settings = new Mock<ISettings>();
+            _browser = new Mock<IFolderBrowser>();
+            _browser.Setup(c => c.GetFolderFromDialog()).Returns(string.Empty);
 
-            _subject = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+            _subject = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object, _browser.Object);
         }
 
         [Test]
@@ -35,8 +38,9 @@ namespace CounterStrats.UI.Test.ViewModels
             _settings.Setup(c => c.SteamName).Returns("foo");
             _settings.Setup(c => c.CsgoPath).Returns("bar");
             _settings.Setup(c => c.SteamId).Returns(String.Empty);
-            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
-            
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
+                _browser.Object);
+
             Assert.That(result.DisplaySteamLoginLink == true);
         }
 
@@ -46,7 +50,8 @@ namespace CounterStrats.UI.Test.ViewModels
             _settings.Setup(c => c.SteamId).Returns("foo");
             _settings.SetupGet(c => c.CsgoPath).Returns("bar");
             _settings.SetupGet(c => c.SteamName).Returns(String.Empty);
-            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
+                _browser.Object);
 
             Assert.That(result.UserName == null);
             Assert.That(result.DisplaySteamLoginLink == true);
@@ -58,7 +63,8 @@ namespace CounterStrats.UI.Test.ViewModels
             _settings.SetupGet(c => c.SteamId).Returns("foo");
             _settings.SetupGet(c => c.SteamName).Returns("bar");
             _settings.SetupGet(c => c.CsgoPath).Returns(string.Empty);
-            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
+                _browser.Object);
 
             Assert.That(result.CsgoPath == null);
             Assert.That(result.DisplayChangeCsgoPathButton == true);
@@ -71,7 +77,8 @@ namespace CounterStrats.UI.Test.ViewModels
             _settings.SetupGet(c => c.SteamName).Returns(testSteamName);
             _settings.SetupGet(c => c.CsgoPath).Returns("bar");
             _settings.SetupGet(c => c.SteamId).Returns("foo");
-            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
+                _browser.Object);
 
             Assert.That(result.UserName == testSteamName);
             Assert.That(result.DisplaySteamLoginLink == false);
@@ -84,10 +91,19 @@ namespace CounterStrats.UI.Test.ViewModels
             _settings.SetupGet(c => c.SteamId).Returns("foo");
             _settings.SetupGet(c => c.SteamName).Returns("bar");
             _settings.SetupGet(c => c.CsgoPath).Returns(testPath);
-            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
+                _browser.Object);
 
             Assert.That(result.CsgoPath == testPath);
             Assert.That(result.DisplayChangeCsgoPathButton == false);
+        }
+
+        [Test]
+        public void OpenDialog_OpensFolderBrowser()
+        {
+            _subject.OpenDialog();
+
+            _browser.Verify(c => c.GetFolderFromDialog(), Times.Once);
         }
     }
 }

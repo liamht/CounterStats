@@ -279,6 +279,8 @@
     <Compile Include="DesignTimeViewModels\DesignTimeAppSettingsViewModel.cs" />
     <Compile Include="DesignTimeViewModels\DesignTimeCurrentGameViewModel.cs" />
     <Compile Include="DesignTimeViewModels\DesignTimeLifetimeStatsViewModel.cs" />
+    <Compile Include="Helpers\FolderBrowser.cs" />
+    <Compile Include="Helpers\IFolderBrowser.cs" />
     <Compile Include="Helpers\ISettings.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="SteamApiKey.cs" />

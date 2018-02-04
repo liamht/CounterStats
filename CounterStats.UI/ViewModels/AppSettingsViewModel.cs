@@ -102,11 +102,14 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
 
         private ISettings _settings;
 
-        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator, ISteamApiCaller apiHelper, ISettings settings)
+        private IFolderBrowser _browser;
+
+        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator, ISteamApiCaller apiHelper, ISettings settings, IFolderBrowser browser)
         {
             _authenticator = authenticator;
             _apiHelper = apiHelper;
             _settings = settings;
+            _browser = browser;
 
             UserName = _settings.SteamName;
             CsgoPath = _settings.CsgoPath;
@@ -124,25 +127,25 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
 
         public void OpenDialog()
         {
-            var dialog = new CommonOpenFileDialog();
-            dialog.IsFolderPicker = true;
-            var result = dialog.ShowDialog();
-
-            if (result == CommonFileDialogResult.Ok)
+            string folder = _browser.GetFolderFromDialog();
+            if (string.IsNullOrWhiteSpace(folder))
             {
-                if (CheckFolderIsValidCounterStrikeFolder(dialog.FileName))
-                {
-                    AddConfigFileToSelectedPath(dialog.FileName);
-                    _settings.CsgoPath = dialog.FileName;
-                    _settings.SaveChanges();
+                // user has exited dialog. Do not show any error messages
+                return;
+            }
 
-                    CsgoPath = dialog.FileName;
-                    DisplayChangeCsgoPathButton = false;
-                }
-                else
-                {
-                    IsErrorMessageShown = true;
-                }
+            if (CheckFolderIsValidCounterStrikeFolder(folder))
+            {
+                AddConfigFileToSelectedPath(folder);
+                _settings.CsgoPath = folder;
+                _settings.SaveChanges();
+
+                CsgoPath = folder;
+                DisplayChangeCsgoPathButton = false;
+            }
+            else
+            {
+                IsErrorMessageShown = true;
             }
         }
 
