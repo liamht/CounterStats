@@ -53,7 +53,7 @@ namespace CounterStrats.UI.Test.ViewModels
             var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
                 _browser.Object);
 
-            Assert.That(result.UserName == null);
+            Assert.That(result.UserName == string.Empty);
             Assert.That(result.DisplaySteamLoginLink == true);
         }
 
@@ -66,7 +66,7 @@ namespace CounterStrats.UI.Test.ViewModels
             var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object,
                 _browser.Object);
 
-            Assert.That(result.CsgoPath == null);
+            Assert.That(result.CsgoPath == string.Empty);
             Assert.That(result.DisplayChangeCsgoPathButton == true);
         }
 
