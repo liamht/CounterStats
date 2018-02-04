@@ -32,11 +32,62 @@ namespace CounterStrats.UI.Test.ViewModels
         [Test]
         public void Constructor_WhenUserSettingForSteamIdIsNotSet_PromptsUserToLogin()
         {
-            _settings.Setup(c => c.SteamId).Returns<string>(null);
+            _settings.Setup(c => c.SteamName).Returns("foo");
+            _settings.Setup(c => c.CsgoPath).Returns("bar");
+            _settings.Setup(c => c.SteamId).Returns(String.Empty);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+            
+            Assert.That(result.DisplaySteamLoginLink == true);
+        }
+
+        [Test]
+        public void Constructor_WhenUserSettingForSteamNameIsNotSet_PromptsUserToLogin()
+        {
+            _settings.Setup(c => c.SteamId).Returns("foo");
+            _settings.SetupGet(c => c.CsgoPath).Returns("bar");
+            _settings.SetupGet(c => c.SteamName).Returns(String.Empty);
             var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
 
             Assert.That(result.UserName == null);
             Assert.That(result.DisplaySteamLoginLink == true);
+        }
+
+        [Test]
+        public void Constructor_WhenUserSettingForCsgoPathIsNotSet_DisplaysCsgoPathLink()
+        {
+            _settings.SetupGet(c => c.SteamId).Returns("foo");
+            _settings.SetupGet(c => c.SteamName).Returns("bar");
+            _settings.SetupGet(c => c.CsgoPath).Returns(string.Empty);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+
+            Assert.That(result.CsgoPath == null);
+            Assert.That(result.DisplayChangeCsgoPathButton == true);
+        }
+
+        [Test]
+        public void Constructor_WhenUserSettingForSteamIdAndSteamNameAreSet_DoesNotPromptForLogin()
+        {
+            var testSteamName = "testtest";
+            _settings.SetupGet(c => c.SteamName).Returns(testSteamName);
+            _settings.SetupGet(c => c.CsgoPath).Returns("bar");
+            _settings.SetupGet(c => c.SteamId).Returns("foo");
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+
+            Assert.That(result.UserName == testSteamName);
+            Assert.That(result.DisplaySteamLoginLink == false);
+        }
+
+        [Test]
+        public void Constructor_WhenUserSettingForCsgoPathIsSet_DoesNotPromptForChangingCsgoPath()
+        {
+            var testPath = "testtest";
+            _settings.SetupGet(c => c.SteamId).Returns("foo");
+            _settings.SetupGet(c => c.SteamName).Returns("bar");
+            _settings.SetupGet(c => c.CsgoPath).Returns(testPath);
+            var result = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object);
+
+            Assert.That(result.CsgoPath == testPath);
+            Assert.That(result.DisplayChangeCsgoPathButton == false);
         }
     }
 }

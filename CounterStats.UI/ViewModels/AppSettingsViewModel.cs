@@ -111,7 +111,7 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
             UserName = _settings.SteamName;
             CsgoPath = _settings.CsgoPath;
 
-            if (string.IsNullOrWhiteSpace(UserName))
+            if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(_settings.SteamId))
             {
                 DisplaySteamLoginLink = true;
             }
