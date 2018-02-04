@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Input;
 using CounterStats.ApiCaller;
 using CounterStats.UI.Commands;
+using CounterStats.UI.Helpers;
 using CounterStats.UI.Views;
 using CounterStats.UI.Views.Elements;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -99,12 +100,16 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
 
         private ISteamApiCaller _apiHelper;
 
-        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator, ISteamApiCaller apiHelper)
+        private ISettings _settings;
+
+        public AppSettingsViewModel(ISteamBrowserAuthenticator authenticator, ISteamApiCaller apiHelper, ISettings settings)
         {
             _authenticator = authenticator;
             _apiHelper = apiHelper;
-            UserName = Properties.Settings.Default.SteamName;
-            CsgoPath = Properties.Settings.Default.CsgoPath;
+            _settings = settings;
+
+            UserName = _settings.SteamName;
+            CsgoPath = _settings.CsgoPath;
 
             if (string.IsNullOrWhiteSpace(UserName))
             {
@@ -128,8 +133,8 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
                 if (CheckFolderIsValidCounterStrikeFolder(dialog.FileName))
                 {
                     AddConfigFileToSelectedPath(dialog.FileName);
-                    Properties.Settings.Default.CsgoPath = dialog.FileName;
-                    Properties.Settings.Default.Save();
+                    _settings.CsgoPath = dialog.FileName;
+                    _settings.SaveChanges();
 
                     CsgoPath = dialog.FileName;
                     DisplayChangeCsgoPathButton = false;
@@ -147,9 +152,9 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
             if (string.IsNullOrWhiteSpace(userId)) return;
 
             UserName = _apiHelper.GetPlayerSummaries(userId).UserName;
-            Properties.Settings.Default.SteamId = userId;
-            Properties.Settings.Default.SteamName = UserName;
-            Properties.Settings.Default.Save();
+            _settings.SteamId = userId;
+            _settings.SteamName = UserName;
+            _settings.SaveChanges();
             DisplaySteamLoginLink = false;
         }
 

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using CounterStats.ApiCaller;
 using CounterStats.ApiCaller.HttpWebClient;
 using CounterStats.Business;
 using CounterStats.Business.Interfaces;
+using CounterStats.UI.Helpers;
 using CounterStats.UI.ViewModels;
 using CounterStats.UI.Views.CurrentGame;
 using CounterStats.UI.Views.Elements;
 using CounterStats.UI.Views.LifetimeStats;
 using CSGSI;
 using Ninject;
-using System.Configuration;
 using CounterStats.UI.Views.AppSettings;
 
 namespace CounterStats.UI.Views
@@ -58,6 +56,7 @@ namespace CounterStats.UI.Views
                 .WithConstructorArgument(@"apiKey", SteamApiKey.Value);
 
             _container.Bind<ILifetimeStatisticsFetcher>().To<LifetimeStatisticsFetcher>();
+            _container.Bind<ISettings>().To<Settings>();
             _container.Bind<GameStateListener>().ToConstant(new GameStateListener(12455));
             
             _container.Bind<IMainMenu>().ToConstant(GetMainMenu());
