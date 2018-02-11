@@ -20,6 +20,8 @@ namespace CounterStrats.UI.Test.ViewModels
         private Mock<ISettings> _settings;
         private Mock<IFolderBrowser> _browser;
 
+        private const string FAKE_STEAM_PATH = "C:/Test/TestFolder/";
+
         [SetUp]
         public void Setup()
         {
@@ -27,7 +29,7 @@ namespace CounterStrats.UI.Test.ViewModels
             _api = new Mock<ISteamApiCaller>();
             _settings = new Mock<ISettings>();
             _browser = new Mock<IFolderBrowser>();
-            _browser.Setup(c => c.GetFolderFromDialog()).Returns(string.Empty);
+            _browser.Setup(c => c.GetFolderFromDialog()).Returns(FAKE_STEAM_PATH);
 
             _subject = new AppSettingsViewModel(_authenticator.Object, _api.Object, _settings.Object, _browser.Object);
         }
@@ -104,6 +106,32 @@ namespace CounterStrats.UI.Test.ViewModels
             _subject.OpenDialog();
 
             _browser.Verify(c => c.GetFolderFromDialog(), Times.Once);
+        }
+
+        [Test]
+        public void OpenDialog_SetsSettingValueToReturnValueFromDialog()
+        {
+            _subject.OpenDialog();
+            
+            _settings.VerifySet(c => c.CsgoPath = FAKE_STEAM_PATH, Times.Once);
+        }
+
+        [Test]
+        public void OpenDialog_WhenReturnedFolderIsNull_DoesNotChangeSetting()
+        {
+            _browser.Setup(c => c.GetFolderFromDialog()).Returns<string>(null);
+            _subject.OpenDialog();
+            
+            _settings.VerifySet(c => c.CsgoPath = It.IsAny<string>(), Times.Never);
+        }
+
+        [Test]
+        public void OpenDialog_WhenReturnedFolderIsEmpty_DoesNotChangeSetting()
+        {
+            _browser.Setup(c => c.GetFolderFromDialog()).Returns(string.Empty);
+            _subject.OpenDialog();
+
+            _settings.VerifySet(c => c.CsgoPath = It.IsAny<string>(), Times.Never);
         }
     }
 }
