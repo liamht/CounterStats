@@ -15,8 +15,10 @@ namespace CounterStats.UI.ViewModels
     {
         public ICommand OpenFolderDialog => new ActionCommand(OpenDialog);
 
-        public ICommand LoginCommand => new ActionCommand(async () => Login());
+        public ICommand LoginCommand => new ActionCommand(() => Login());
 
+        public ICommand LogOutCommand => new ActionCommand(() => LogOut());
+        
         public ICommand ErrorMessageReceived => new ActionCommand(CloseErrorMessage);
 
         #region public bool IsErrorMessageShown
@@ -147,6 +149,15 @@ C:\Program Files/Steam\steamapps\common\Counter-Strike Global Offensive.";
             {
                 IsErrorMessageShown = true;
             }
+        }
+
+        private void LogOut()
+        {
+            _settings.SteamName = null;
+            _settings.SteamId = null;
+            UserName = null;
+            DisplaySteamLoginLink = true;
+            _settings.SaveChanges();
         }
 
         public async void Login()
