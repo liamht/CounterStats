@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using CounterStats.ApiCaller;
 using CounterStats.ApiCaller.HttpWebClient;
@@ -37,6 +38,8 @@ namespace CounterStats.UI.Views
 
             var vm = (page.DataContext as MainWindowViewModel);
             vm.SelectedMenuItem = vm.Menu.First();
+
+            CefSharp.Cef.Initialize();
         }
 
         private void ConfigureContainer()

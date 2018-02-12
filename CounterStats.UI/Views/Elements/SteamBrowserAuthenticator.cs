@@ -26,6 +26,7 @@ namespace CounterStats.UI.Views.Elements
 
         private void SetUpWindow()
         {
+            
             _window = new Window()
             {
                 Width = 900,
@@ -35,10 +36,6 @@ namespace CounterStats.UI.Views.Elements
             _browser = new ChromiumWebBrowser();
             _window.Closing += CleanUpBrowser;
             _browser.LoadingStateChanged += BrowserOnLoadingStateChanged;
-            _window.Closing += (s, e) =>
-            {
-                _limiter.Release();
-            };
 
             _window.Content = _browser;
             _window.Show();
@@ -60,9 +57,9 @@ namespace CounterStats.UI.Views.Elements
 
         private void CleanUpBrowser(object o, CancelEventArgs cancelEventArgs)
         {
+            _limiter.Release();
             _window.Dispatcher.Invoke(() =>
             {
-                Cef.Shutdown();
                 _browser.Dispose();
             });
         }

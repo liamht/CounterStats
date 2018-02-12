@@ -21,6 +21,7 @@ namespace CounterStats.UI.Views
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
+            CefSharp.Cef.Shutdown();
             Environment.Exit(0);
         }
 

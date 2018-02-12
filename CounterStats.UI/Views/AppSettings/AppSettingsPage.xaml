@@ -92,7 +92,7 @@
                     </StackPanel.Style>
                     <TextBlock VerticalAlignment="Center">Authenticate with Steam</TextBlock>
                     <TextBlock Margin="15 0 0 0" VerticalAlignment="Center" Text="{Binding UserName}"></TextBlock>
-                    <Button Margin="15 0 0 0" Command="{Binding LogOut}" Style="{DynamicResource MaterialDesignFlatButton}" Content="Log Out"></Button>
+                    <Button Margin="15 0 0 0" Command="{Binding LogOutCommand}" Style="{DynamicResource MaterialDesignFlatButton}" Content="Log Out"></Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="15">
                     <StackPanel.Style>
