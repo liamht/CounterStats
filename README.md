@@ -1,3 +1,5 @@
+### NOTE - If you fork this for anything you do, be aware that some vulnerabilities exist in the packages use that have been added to the CVE register since the project was made. Please ensure you update nuget packages before running 
+
 # CounterStats
 CSGO Game State Integration Application to track statistics in a game (and a few other features)
 
